@@ -42,6 +42,9 @@ const App = () => {
         <MovieContainer key={movie.id} 
           title={movie.title}
           poster={movie.poster_path}
+          average={movie.vote_average}
+          release={movie.release_date}
+          overview={movie.overview}
         />
       )}
     </div>
