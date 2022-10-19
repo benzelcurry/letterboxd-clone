@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { initializeApp} from 'firebase/app';
+
+import MovieContainer from './MovieContainer';
+
+const API_URL = process.env.REACT_APP_API_URL
+const API_KEY = process.env.REACT_APP_API_KEY
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -14,12 +19,26 @@ const firebaseConfig = {
   appId: "1:505756328658:web:2fb82a6c7cf50d1455030b"
 };
 
+// REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
 const App = () => {
+  const [movies, setMovies] = useState([])
+  
+  useEffect(() => {
+    fetch(API_URL)
+    .then((response) => response.json())
+    .then(data => {
+      console.log(data);
+      setMovies(data.results);
+    })
+  }, []);
+
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
   return (
-    <div>App content will go here.</div>
+    <div>
+      {movies.map((movieReq)=><MovieContainer />)}
+    </div>
   );
 };
 
