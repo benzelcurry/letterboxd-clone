@@ -1,9 +1,11 @@
 import React from 'react';
+const API_IMG = 'https://image.tmdb.org/t/p/w500/'
 
-const MovieContainer = () => {
+const MovieContainer = ({ title, poster, average, release, overview }) => {
   return (
     <div>
-      Movie info goes here
+      <h1>{title}</h1>
+      <img src={API_IMG + poster} />
     </div>
   );
 };

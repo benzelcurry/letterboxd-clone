@@ -26,7 +26,7 @@ const App = () => {
   useEffect(() => {
     fetch(API_URL)
     .then((response) => response.json())
-    .then(data => {
+    .then((data) => {
       console.log(data);
       setMovies(data.results);
     })
@@ -37,7 +37,13 @@ const App = () => {
 
   return (
     <div>
-      {movies.map((movieReq)=><MovieContainer />)}
+    {/* STILL NEED TO RETRIEVE OTHER PARAMS BEING PASSED TO MOVIECONTAINER */}
+      {movies.map((movie)=>
+        <MovieContainer key={movie.id} 
+          title={movie.title}
+          poster={movie.poster_path}
+        />
+      )}
     </div>
   );
 };
