@@ -1,6 +1,12 @@
+// TO-DO LIST:
+// 1. ADD SEARCH FEATURE
+// 2. IMPLEMENT DYNAMIC ROUTING
+// 3. IMPLEMENT ADDITIONAL FEATURES AS NEEDED TO REPLICATE LETTERBOXD UI
+
 import React, { useState, useEffect } from 'react';
 import { initializeApp} from 'firebase/app';
 
+import Nav from './Nav';
 import MovieContainer from './MovieContainer';
 
 const API_URL = process.env.REACT_APP_API_URL
@@ -22,22 +28,23 @@ const firebaseConfig = {
 // REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
 const App = () => {
   const [movies, setMovies] = useState([])
+  const [query, setQuery] = useState('')
   
-  useEffect(() => {
-    fetch(API_URL)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      setMovies(data.results);
-    })
-  }, []);
+  // useEffect(() => {
+  //   fetch(API_URL)
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //     setMovies(data.results);
+  //   })
+  // }, []);
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
   return (
     <div>
-    {/* STILL NEED TO RETRIEVE OTHER PARAMS BEING PASSED TO MOVIECONTAINER */}
+      <Nav setMovies={setMovies} query={query} setQuery={setQuery} />
       {movies.map((movie)=>
         <MovieContainer key={movie.id} 
           title={movie.title}

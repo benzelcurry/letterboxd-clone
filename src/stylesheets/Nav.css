@@ -1,0 +1,28 @@
+/* WILL FIGURE OUT FONTS AT A LATER TIME */
+/* LOOK UP HOW TO MAKE ONLY CERTAIN ELEMENTS DISPLAY IF WIDTH IS TOO SMALL */
+
+.nav-container {
+  display: flex;
+  height: 75px;
+  background-color: none;
+}
+
+.separate {
+  display: flex;
+  color: white;
+  align-self: center;
+  gap: 20px;
+  font-size: 1rem;
+}
+
+.search {
+  height: 20px;
+  width: 150px;
+  border-radius: 30px;
+  outline: none;
+  padding: 5px;
+}
+
+input {
+  border: none;
+}
