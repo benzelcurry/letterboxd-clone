@@ -1,0 +1,17 @@
+.app-container {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  justify-items: center;
+}
+
+.backdrop {
+  display: flex;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 500px;
+  width: auto;
+}

@@ -8,9 +8,11 @@ import { initializeApp} from 'firebase/app';
 
 import Nav from './Nav';
 import MovieContainer from './MovieContainer';
+import '../stylesheets/App.css';
 
 const API_URL = process.env.REACT_APP_API_URL
 const API_KEY = process.env.REACT_APP_API_KEY
+const API_IMG = 'https://image.tmdb.org/t/p/w500/'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,26 +28,30 @@ const firebaseConfig = {
 };
 
 // REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
+// FIND WAY TO GET HIGHER RES IMAGE? OR JUST SET A STATIC ONE
 const App = () => {
   const [movies, setMovies] = useState([])
+  const [backdrop, setBackdrop] = useState('')
   const [query, setQuery] = useState('')
   
-  // useEffect(() => {
-  //   fetch(API_URL)
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //     setMovies(data.results);
-  //   })
-  // }, []);
+  useEffect(() => {
+    fetch(API_URL)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      setMovies(data.results);
+      setBackdrop(data.results[0].backdrop_path)
+    })
+  }, []);
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
   return (
-    <div>
+    <div className='app-container'>
       <Nav setMovies={setMovies} query={query} setQuery={setQuery} />
-      {movies.map((movie)=>
+      <img src={API_IMG + backdrop} alt='Image from movie' className='backdrop'/>
+      {/* {movies.map((movie)=>
         <MovieContainer key={movie.id} 
           title={movie.title}
           poster={movie.poster_path}
@@ -53,7 +59,7 @@ const App = () => {
           release={movie.release_date}
           overview={movie.overview}
         />
-      )}
+      )} */}
     </div>
   );
 };

@@ -4,6 +4,10 @@
 .nav-container {
   display: grid;
   justify-content: center;
+  position: sticky;
+  z-index: 9;
+  top: 0;
+  left: 0;
 }
 
 .nav-container2 {
