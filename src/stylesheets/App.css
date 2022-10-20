@@ -14,4 +14,63 @@
   right: 0;
   height: 500px;
   width: auto;
+  box-shadow: 10px white;
+  z-index: -1;
+}
+
+.motto {
+  display: grid;
+  grid-template-rows: repeat(4, 50px);
+  justify-items: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  margin-top: 300px;
+}
+
+.home-sign-up {
+  width: 325px;
+  height: 40px;
+  margin-top: 15px;
+  background-color: #00c030;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.home-sign-up:hover {
+  filter: brightness(0.9);
+}
+
+.tagline {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  gap: 10px;
+}
+
+.apple {
+  height: 34px;
+  width: 34x;
+  filter: invert(60%) sepia(6%) saturate(0%) hue-rotate(208deg) brightness(95%) contrast(94%);
+  cursor: pointer;
+}
+
+.apple:hover {
+  filter: invert(95%) sepia(0%) saturate(0%) hue-rotate(182deg) brightness(88%) contrast(76%);
+}
+
+.android {
+  margin-top: 10px;
+  height: 34px;
+  width: 34x;
+  filter: invert(60%) sepia(6%) saturate(0%) hue-rotate(208deg) brightness(95%) contrast(94%);
+  cursor: pointer;
+}
+
+.android:hover {
+  filter: invert(95%) sepia(0%) saturate(0%) hue-rotate(182deg) brightness(88%) contrast(76%);
 }

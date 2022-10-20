@@ -8,6 +8,8 @@ import { initializeApp} from 'firebase/app';
 
 import Nav from './Nav';
 import MovieContainer from './MovieContainer';
+import Apple from '../images/apple.svg';
+import Android from '../images/android.svg';
 import '../stylesheets/App.css';
 
 const API_URL = process.env.REACT_APP_API_URL
@@ -28,7 +30,7 @@ const firebaseConfig = {
 };
 
 // REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
-// FIND WAY TO GET HIGHER RES IMAGE? OR JUST SET A STATIC ONE
+// FIND WAY TO GET HIGHER RES IMAGE? OR JUST SET A STATIC ONE; MAKE EDGES BLUR
 const App = () => {
   const [movies, setMovies] = useState([])
   const [backdrop, setBackdrop] = useState('')
@@ -51,8 +53,18 @@ const App = () => {
     <div className='app-container'>
       <Nav setMovies={setMovies} query={query} setQuery={setQuery} />
       <img src={API_IMG + backdrop} alt='Image from movie' className='backdrop'/>
+      <div className='motto'>
+        <p>Track films you've watched.</p>
+        <p>Save those you want to see.</p>
+        <p>Tell your friends what's good.</p>
+        <button className='home-sign-up'>GET STARTED − IT'S FREE!</button>
+        <p className='tagline'>The social network for film lovers. Also available on
+            <img src={Apple} alt='Apple' className='apple' />
+            <img src={Android} alt='Android' className='android' />
+        </p>
+      </div>
       {/* {movies.map((movie)=>
-        <MovieContainer key={movie.id} 
+        <MovieContainer key={movie.id} −,
           title={movie.title}
           poster={movie.poster_path}
           average={movie.vote_average}
