@@ -2,25 +2,55 @@
 /* LOOK UP HOW TO MAKE ONLY CERTAIN ELEMENTS DISPLAY IF WIDTH IS TOO SMALL */
 
 .nav-container {
+  display: grid;
+  justify-content: center;
+}
+
+.nav-container2 {
   display: flex;
   height: 75px;
+  min-width: 1000px;
+  max-width: 1400px;
   background-color: none;
+  justify-content: space-between;
 }
 
 .separate {
   display: flex;
   color: white;
-  align-self: center;
+  align-items: center;
   gap: 20px;
   font-size: 1rem;
 }
 
 .search {
+  display: flex;
   height: 20px;
   width: 150px;
   border-radius: 30px;
   outline: none;
   padding: 5px;
+  background-color: #808080c3;
+  transition: 1s;
+}
+
+.search:hover {
+  filter: brightness(2);
+}
+
+.search:focus {
+  background-color: #fff;
+}
+
+.search-icon {
+  height: 20px;
+  width: auto;
+  position: absolute;
+  margin-left: 135px;
+  margin-top: 6px;
+  color: black;
+  cursor: pointer;
+  z-index: 9;
 }
 
 input {

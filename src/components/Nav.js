@@ -1,7 +1,10 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from '../images/logo.png';
+import Search from '../images/search.svg';
 import '../stylesheets/Nav.css';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const API_SEARCH = process.env.REACT_APP_API_SEARCH
 
@@ -29,17 +32,20 @@ const Nav = ({ setMovies, query, setQuery }) => {
 
   return (
     <div className='nav-container'>
-      <img src={Logo} alt='Letterboxd logo' className='logo' />
-      <div className='separate'>
-        <div className='sign-in'>Sign In</div>
-        <div className="create-account">Create Account</div>
-        <div className="films">Films</div>
-        <div className="lists">Lists</div>
-        <div className="members">Members</div>
-        <div className="journal">Journal</div>
-        <form>
-          <input type='text' className='search'></input>
-        </form>
+      <div className="nav-container2">
+        <img src={Logo} alt='Letterboxd logo' className='logo' />
+        <div className='separate'>
+          <div className='sign-in'>Sign In</div>
+          <div className="create-account">Create Account</div>
+          <div className="films">Films</div>
+          <div className="lists">Lists</div>
+          <div className="members">Members</div>
+          <div className="journal">Journal</div>
+          <form>
+            <i className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} /></i>
+            <input type='text' className='search'></input>
+          </form>
+        </div>
       </div>
     </div>
   );
