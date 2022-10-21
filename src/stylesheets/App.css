@@ -38,6 +38,8 @@
   color: white;
   font-size: 2rem;
   margin-top: 300px;
+  position: relative;
+  top: -45%;
 }
 
 .home-sign-up {

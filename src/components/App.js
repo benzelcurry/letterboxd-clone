@@ -52,18 +52,20 @@ const App = () => {
   return (
     <div className='app-container'>
       <Nav setMovies={setMovies} query={query} setQuery={setQuery} />
-      <div className="backdrop-container">
-        <img src={API_IMG + backdrop} alt='Movie backdrop' className='backdrop'/>
-      </div>
-      <div className='motto'>
-        <p>Track films you've watched.</p>
-        <p>Save those you want to see.</p>
-        <p>Tell your friends what's good.</p>
-        <button className='home-sign-up'>GET STARTED − IT'S FREE!</button>
-        <p className='tagline'>The social network for film lovers. Also available on
-            <img src={Apple} alt='Apple' className='apple' />
-            <img src={Android} alt='Android' className='android' />
-        </p>
+      <div class="home-container">
+        <div className="backdrop-container">
+          <img src={API_IMG + backdrop} alt='Movie backdrop' className='backdrop'/>
+        </div>
+        <div className='motto'>
+          <p>Track films you've watched.</p>
+          <p>Save those you want to see.</p>
+          <p>Tell your friends what's good.</p>
+          <button className='home-sign-up'>GET STARTED − IT'S FREE!</button>
+          <p className='tagline'>The social network for film lovers. Also available on
+              <img src={Apple} alt='Apple' className='apple' />
+              <img src={Android} alt='Android' className='android' />
+          </p>
+        </div>
       </div>
       {/* {movies.map((movie)=>
         <MovieContainer key={movie.id}
