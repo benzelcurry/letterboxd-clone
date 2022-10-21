@@ -14,7 +14,7 @@ import '../stylesheets/App.css';
 
 const API_URL = process.env.REACT_APP_API_URL
 const API_KEY = process.env.REACT_APP_API_KEY
-const API_IMG = 'https://image.tmdb.org/t/p/w500/'
+const API_IMG = 'https://image.tmdb.org/t/p/original/'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -52,7 +52,9 @@ const App = () => {
   return (
     <div className='app-container'>
       <Nav setMovies={setMovies} query={query} setQuery={setQuery} />
-      <img src={API_IMG + backdrop} alt='Image from movie' className='backdrop'/>
+      <div className="backdrop-container">
+        <img src={API_IMG + backdrop} alt='Movie backdrop' className='backdrop'/>
+      </div>
       <div className='motto'>
         <p>Track films you've watched.</p>
         <p>Save those you want to see.</p>
@@ -64,7 +66,7 @@ const App = () => {
         </p>
       </div>
       {/* {movies.map((movie)=>
-        <MovieContainer key={movie.id} −,
+        <MovieContainer key={movie.id}
           title={movie.title}
           poster={movie.poster_path}
           average={movie.vote_average}
