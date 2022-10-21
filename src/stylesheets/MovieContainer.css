@@ -1,11 +1,36 @@
-.poster {
-  height: 250px;
-  width: auto;
+/* FIGURE OUT HOW TO MAKE THESE SO THEY DONT GROW LARGER WHEN
+HOVERED; THE ISSUE LIES WITHIN THE BORDER SIZE INCREASING */
+
+.poster-container {
   border: solid 1px white;
   border-radius: 5px;
+  height: 250px;
+  width: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-container:hover {
+  border: solid 2px #00c030;
+}
+
+.poster {
+  height: 100%;
+  width: auto;
   cursor: pointer;
+  transition: ease 0.5s;
 }
 
 .poster:hover {
   filter: brightness(0.5);
+}
+
+.poster-average {
+  display: flex;
+  position: absolute;
+  font-size: 1.3rem;
+  color: white;
+  z-index: 12;
 }
