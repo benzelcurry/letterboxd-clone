@@ -35,6 +35,7 @@ const App = () => {
   const [movies, setMovies] = useState([])
   const [backdrop, setBackdrop] = useState('')
   const [query, setQuery] = useState('')
+  const [popSix, setPopSix] = useState([])
   
   useEffect(() => {
     fetch(API_URL)
@@ -43,6 +44,7 @@ const App = () => {
       console.log(data);
       setMovies(data.results);
       setBackdrop(data.results[0].backdrop_path)
+      setPopSix(data.results.slice(0, 6))
     })
   }, []);
 
@@ -65,6 +67,22 @@ const App = () => {
               <img src={Apple} alt='Apple' className='apple' />
               <img src={Android} alt='Android' className='android' />
           </p>
+        </div>
+      </div>
+      <div className='movies-container'>
+        <div className="popular-container">
+          <div className="popular-title">POPULAR FILMS</div>
+          <div className="popular-thumbnails">
+            {popSix.map((movie)=>
+                <MovieContainer key={movie.id}
+                  title={movie.title}
+                  poster={movie.poster_path}
+                  average={movie.vote_average}
+                  release={movie.release_date}
+                  overview={movie.overview}
+                />
+              )}
+          </div>
         </div>
       </div>
       {/* {movies.map((movie)=>

@@ -37,9 +37,7 @@
   align-items: center;
   color: white;
   font-size: 2rem;
-  margin-top: 300px;
-  position: relative;
-  top: -45%;
+  margin-top: -20%;
 }
 
 .home-sign-up {
@@ -87,4 +85,26 @@
 
 .android:hover {
   filter: invert(95%) sepia(0%) saturate(0%) hue-rotate(182deg) brightness(88%) contrast(76%);
+}
+
+.popular-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+ 
+  padding: 40px;
+}
+
+.popular-title {
+  color: #fff;
+  padding: 5px;
+  border-bottom: solid 1px white;
+  width: 100%;
+}
+
+.popular-thumbnails {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
