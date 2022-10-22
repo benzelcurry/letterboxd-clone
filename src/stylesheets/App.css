@@ -131,9 +131,22 @@
 }
 
 .feature {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: center;
+  gap: 20px;
   background-color: #445566;
   color: #99aabb;
   padding: 20px;
   border-radius: 5px;
+}
+
+.feature-icon {
+  height: 40px;
+  width: auto;
+  filter: invert(70%) sepia(14%) saturate(364%) hue-rotate(169deg) brightness(92%) contrast(95%);
+}
+
+.pro {
+  font-weight: bold;
 }
