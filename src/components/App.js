@@ -30,7 +30,7 @@ const firebaseConfig = {
 };
 
 // REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
-// FIND WAY TO GET HIGHER RES IMAGE? OR JUST SET A STATIC ONE; MAKE EDGES BLUR
+// CURRENT PRIORITY: DYNAMICALLY CREATE PAGES WITH REACT-ROUTER THEN IMPLEMENT SEARCH FEATURE
 const App = () => {
   const [movies, setMovies] = useState([])
   const [backdrop, setBackdrop] = useState('')
@@ -71,7 +71,7 @@ const App = () => {
       </div>
       <div className='movies-container'>
         <div className="popular-container">
-          <div className="popular-title">POPULAR FILMS</div>
+          <div className="popular-title">POPULAR ON LETTERBOXD</div>
           <div className="popular-thumbnails">
             {popSix.map((movie)=>
                 <MovieContainer key={movie.id}
@@ -82,6 +82,34 @@ const App = () => {
                   overview={movie.overview}
                 />
               )}
+          </div>
+        </div>
+      </div>
+      <div className="features-container">
+        <div className="features-title">LETTERBOXD LETS YOU...</div>
+        <div className="site-features">
+          {/* ADD ICONS TO EACH OF THESE */}
+          <div className="feature">
+            <p>Keep track of every film you've ever watched (or just start from the day
+               you join.</p>
+          </div>
+          <div className="feature">
+            <p>Rate each film on a five star scale (with halves) to record and share
+               your reaction.</p>
+          </div>
+          <div className="feature">
+            <p>Show some love for your favorite films, lists and reviews with a "like"</p>
+          </div>
+          <div className="feature">
+            <p>Keep a diary of your film watching (and upgrade to <bold>Pro</bold> for
+               comprehensive stats)</p>
+          </div>
+          <div className="feature">
+          <p>Write and share reviews, and follow friends and other members to read theirs</p>
+          </div>
+          <div className="feature">
+            <p>Compile and share lists of films on any topic and keep a watchlist of films
+               to see</p>
           </div>
         </div>
       </div>

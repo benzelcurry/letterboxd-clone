@@ -22,7 +22,6 @@ const MovieContainer = ({ title, poster, average, release, overview }) => {
       {/* <div className='average'>{average}</div>
       <div className='release-date'>{release}</div>
       <div className='overview'>{overview}</div> */}
-      {/* Figure out why this isn't making one line on last two posters */}
       { hover ?
         <div className='poster-average'>Score: {average}</div>
         : null
