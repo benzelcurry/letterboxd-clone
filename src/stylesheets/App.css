@@ -113,6 +113,7 @@
   flex-direction: column;
   justify-content: start;
   padding: 40px;
+  max-width: 1152px;
 }
 
 .features-title {
@@ -139,6 +140,34 @@
   color: #99aabb;
   padding: 20px;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.f1:hover {
+  background-color: #00c030;
+  color: white;
+}
+
+.f1:hover .feature-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(94deg) brightness(105%) contrast(106%);
+}
+
+.f2:hover {
+  background-color: #ee7000;
+  color: white;
+}
+
+.f2:hover .feature-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(94deg) brightness(105%) contrast(106%);
+}
+
+.f3:hover {
+  background-color: #2596be;
+  color: white;
+}
+
+.f3:hover .feature-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(94deg) brightness(105%) contrast(106%);
 }
 
 .feature-icon {

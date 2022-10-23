@@ -95,30 +95,30 @@ const App = () => {
         <div className="features-title">LETTERBOXD LETS YOU...</div>
         <div className="site-features">
           {/* ADD HOVER EFFECTS TO THESE + FIX WIDTH ON FULL SCREEN */}
-          <div className="feature">
+          <div className="feature f1">
             <img src={Eye} alt='Review' className='feature-icon'/>
             <p>Keep track of every film you've ever watched (or just start from the day
                you join.</p>
           </div>
-          <div className="feature">
+          <div className="feature f2">
             <img src={Star} alt='Star' className='feature-icon' />
             <p>Rate each film on a five star scale (with halves) to record and share
                your reaction.</p>
           </div>
-          <div className="feature">
+          <div className="feature f3">
             <img src={Heart} alt='Heart' className="feature-icon" />
             <p>Show some love for your favorite films, lists and reviews with a "like"</p>
           </div>
-          <div className="feature">
+          <div className="feature f1">
             <img src={Calendar} alt='Calendar' className="feature-icon" />
             <p>Keep a diary of your film watching (and upgrade to <span class='pro'>Pro</span> for
                comprehensive stats)</p>
           </div>
-          <div className="feature">
+          <div className="feature f2">
             <img src={Review} alt='Review' className="feature-icon" />
             <p>Write and share reviews, and follow friends and other members to read theirs</p>
           </div>
-          <div className="feature">
+          <div className="feature f3">
             <img src={Grid} alt='Grid' className="feature-icon" />
             <p>Compile and share lists of films on any topic and keep a watchlist of films
                to see</p>
