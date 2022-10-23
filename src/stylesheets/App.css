@@ -179,3 +179,15 @@
 .pro {
   font-weight: bold;
 }
+
+.ad-space {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border: solid 4px black;
+  width: 728px;
+  height: 90px;
+  background-color: #fff;
+  margin-bottom: 40px;
+}

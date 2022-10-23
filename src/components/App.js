@@ -125,6 +125,7 @@ const App = () => {
           </div>
         </div>
       </div>
+      <div className="ad-space">YOUR AD GOES HERE</div>
       {/* {movies.map((movie)=>
         <MovieContainer key={movie.id}
           title={movie.title}
