@@ -22,6 +22,16 @@
   justify-content: space-between;
 }
 
+.nav-icon {
+  cursor: pointer;
+  color: #c9d6e4;
+  font-weight: bold;
+}
+
+.nav-icon:hover {
+  color: #fff;
+}
+
 .logo {
   width: 341px;
   height: 75px;

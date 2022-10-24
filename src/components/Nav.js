@@ -39,12 +39,12 @@ const Nav = ({ setMovies, query, setQuery }) => {
           <img src={Logo} alt='Letterboxd logo' className='logo' />
         </Link>
         <div className='separate'>
-          <div className='sign-in'>Sign In</div>
-          <div className="create-account">Create Account</div>
-          <div className="films">Films</div>
-          <Link to={'/Lists'} className='lists'>Lists</Link>
-          <Link to={'/Members'} className='members'>Members</Link>
-          <div className="journal">Journal</div>
+          <div className='sign-in nav-icon'>SIGN IN</div>
+          <div className="create-account nav-icon">CREATE ACCOUNT</div>
+          <div className="films nav-icon">FILMS</div>
+          <Link to={'/Lists'} className='lists nav-icon'>LISTS</Link>
+          <Link to={'/Members'} className='members nav-icon'>MEMBERS</Link>
+          <div className="journal nav-icon">JOURNAL</div>
           <form>
             <i className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} /></i>
             <input type='text' className='search'></input>
