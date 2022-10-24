@@ -1,5 +1,6 @@
 /* WILL FIGURE OUT FONTS AT A LATER TIME */
 /* LOOK UP HOW TO MAKE ONLY CERTAIN ELEMENTS DISPLAY IF WIDTH IS TOO SMALL */
+/* MAKE IT SO HEADER DOESNT APPEAR OVER NON-HOME PAGE COMPONENT CONTENT */
 
 .nav-container {
   display: grid;
@@ -21,12 +22,22 @@
   justify-content: space-between;
 }
 
+.logo {
+  width: 341px;
+  height: 75px;
+}
+
 .separate {
   display: flex;
   color: white;
   align-items: center;
   gap: 20px;
   font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .search {

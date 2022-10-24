@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from '../images/logo.png';
@@ -8,6 +9,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const API_SEARCH = process.env.REACT_APP_API_SEARCH
 
+// MAKE IT SO TITLES HIGHLIGHT IN WHITE USING STATE WHEN ON THEIR PAGES
 const Nav = ({ setMovies, query, setQuery }) => {
   // !!! POTENTIAL LOGIC FOR SEARCH FUNCTION BELOW !!!
   // const searchMovies = async(e) => {
@@ -33,13 +35,15 @@ const Nav = ({ setMovies, query, setQuery }) => {
   return (
     <div className='nav-container'>
       <div className="nav-container2">
-        <img src={Logo} alt='Letterboxd logo' className='logo' />
+        <Link to={'/'}>
+          <img src={Logo} alt='Letterboxd logo' className='logo' />
+        </Link>
         <div className='separate'>
           <div className='sign-in'>Sign In</div>
           <div className="create-account">Create Account</div>
           <div className="films">Films</div>
-          <div className="lists">Lists</div>
-          <div className="members">Members</div>
+          <Link to={'/Lists'} className='lists'>Lists</Link>
+          <Link to={'/Members'} className='members'>Members</Link>
           <div className="journal">Journal</div>
           <form>
             <i className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} /></i>
