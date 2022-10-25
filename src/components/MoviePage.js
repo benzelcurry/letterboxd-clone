@@ -34,7 +34,7 @@ const MoviePage = ({ film, setFilm }) => {
         backdrop: data.results[0].backdrop_path,
         poster: data.results[0].poster_path,
         average: data.results[0].vote_average,
-        release: data.results[0].release_date
+        release: data.results[0].release_date.slice(0, 4)
       })
     })
   }, [search]);
@@ -48,7 +48,10 @@ const MoviePage = ({ film, setFilm }) => {
           <img src={API_IMG + info.poster} alt={`${film} poster`} className='film-poster' />
         </div>
         <div className="details-mid">
-          <div className='film-title'>{film}</div>
+          <div className="film-title-container">
+            <div className='film-title'>{film}</div>
+            <div className="film-release">{info.release}</div>
+          </div>
           <p>{info.overview}</p>
           <p>{info.average}</p>
           <p>{info.release}</p>

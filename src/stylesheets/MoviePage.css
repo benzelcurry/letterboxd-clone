@@ -32,7 +32,18 @@
   border-radius: 5px;
 }
 
+.film-title-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 .film-title {
   font-family: tiempos;
   font-size: 32px;
+}
+
+/* MAKE THIS SO IT'S INLINE WITH MOVIE TITLE */
+.film-release {
+  font-size: 1.2rem;
 }
