@@ -24,13 +24,9 @@ const MovieContainer = ({ title, poster, average, release, overview, film, setFi
 
   return (
     <div className='poster-container' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={e => handleClick(e)}>
-      {/* <h1>{title}</h1> */}
       <Link to={`/films/info`} className='poster-container'>
         <img src={API_IMG + poster} alt='Movie poster' className='poster'/>
       </Link>
-      {/* <div className='average'>{average}</div>
-      <div className='release-date'>{release}</div>
-      <div className='overview'>{overview}</div> */}
       { hover ?
         <div className='poster-average'>Score: {average}</div>
         : null

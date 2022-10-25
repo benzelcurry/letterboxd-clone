@@ -1,4 +1,28 @@
 .info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
-  font-size: 2rem;
+  margin-top: 80px;
+}
+
+.film-backdrop {
+  max-width: 80%;
+  max-height: 600px;
+  height: auto;
+}
+
+.details-container {
+  margin-top: -5%;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.film-poster {
+  width: 230px;
+  height: 345px;
+  border: solid 2px silver;
+  border-radius: 5px;
 }
