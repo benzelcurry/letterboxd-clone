@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import App from './App';
@@ -7,13 +7,15 @@ import Members from './Members';
 import MoviePage from './MoviePage';
 
 const RouteSwitch = () => {
+  const [film, setFilm] = useState(null);
+
   return (
     <HashRouter>
       <Routes>
-        <Route path='/' element={<App />} />
+        <Route path='/' element={<App film={film} setFilm={setFilm} />} />
         <Route path='/lists' element={<Lists />} />
         <Route path='/members' element={<Members />} />
-        <Route path='/films/:movieName' element={<MoviePage />} />
+        <Route path='/films/:movieName' element={<MoviePage film={film} setFilm={setFilm} />} />
       </Routes>
     </HashRouter>
   );

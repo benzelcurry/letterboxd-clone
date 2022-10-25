@@ -35,9 +35,12 @@ const firebaseConfig = {
   appId: "1:505756328658:web:2fb82a6c7cf50d1455030b"
 };
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 // REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
 // CURRENT PRIORITY: DYNAMICALLY CREATE PAGES WITH REACT-ROUTER THEN IMPLEMENT SEARCH FEATURE
-const App = () => {
+const App = ({ film, setFilm }) => {
   const [movies, setMovies] = useState([])
   const [backdrop, setBackdrop] = useState('')
   const [query, setQuery] = useState('')
@@ -53,9 +56,6 @@ const App = () => {
       setPopSix(data.results.slice(0, 6))
     })
   }, []);
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
 
   return (
     <div className='app-container'>
@@ -86,6 +86,8 @@ const App = () => {
                   average={movie.vote_average}
                   release={movie.release_date}
                   overview={movie.overview}
+                  film={film}
+                  setFilm={setFilm}
                 />
               )}
           </div>
