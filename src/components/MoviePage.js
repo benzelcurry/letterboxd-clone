@@ -48,7 +48,7 @@ const MoviePage = ({ film, setFilm }) => {
           <img src={API_IMG + info.poster} alt={`${film} poster`} className='film-poster' />
         </div>
         <div className="details-mid">
-          This is the page for the movie {film}.
+          <div className='film-title'>{film}</div>
           <p>{info.overview}</p>
           <p>{info.average}</p>
           <p>{info.release}</p>

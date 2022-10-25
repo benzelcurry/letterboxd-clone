@@ -1,3 +1,8 @@
+@font-face {
+  font-family: tiempos;
+  src: url('../fonts/test-tiempos-headline-bold.woff2');
+}
+
 .info-container {
   display: flex;
   flex-direction: column;
@@ -25,4 +30,9 @@
   height: 345px;
   border: solid 2px silver;
   border-radius: 5px;
+}
+
+.film-title {
+  font-family: tiempos;
+  font-size: 32px;
 }
