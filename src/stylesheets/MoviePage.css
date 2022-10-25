@@ -14,7 +14,7 @@
 
 .film-backdrop {
   max-width: 80%;
-  max-height: 600px;
+  max-height: 500px;
   height: auto;
 }
 
@@ -23,6 +23,7 @@
   display: grid;
   gap: 50px;
   grid-template-columns: 1fr 2fr 1fr;
+  max-width: 1200px;
 }
 
 .film-poster {

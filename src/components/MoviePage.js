@@ -5,11 +5,15 @@ import '../stylesheets/MoviePage.css';
 
 const API_SEARCH = process.env.REACT_APP_API_SEARCH;
 const API_IMG = 'https://image.tmdb.org/t/p/original/';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
+// GET CAST INFO TO DISPLAY ON PAGE
 const MoviePage = ({ film, setFilm }) => {
   const [search, setSearch] = useState(null);
+  const random = 'random';
   const [info, setInfo] = useState({
     overview: null,
+    filmID: null,
     backdrop: null,
     poster: null,
     average: null,
@@ -31,6 +35,7 @@ const MoviePage = ({ film, setFilm }) => {
       console.log(data);
       setInfo({
         overview: data.results[0].overview,
+        filmID: data.results[0].id,
         backdrop: data.results[0].backdrop_path,
         poster: data.results[0].poster_path,
         average: data.results[0].vote_average,
@@ -38,6 +43,15 @@ const MoviePage = ({ film, setFilm }) => {
       })
     })
   }, [search]);
+
+  // THIS PULLS CAST INFO
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/${info.filmID}/credits?api_key=${API_KEY}&language=en-US`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+  }, [info]);
 
   return (
     <div className='info-container'>
