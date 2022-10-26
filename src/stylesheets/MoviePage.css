@@ -56,3 +56,25 @@
 .people-title {
   border-bottom: solid 1px grey;
 }
+
+.cast-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.cast-member {
+  display: flex;
+  font-size: 14px;
+  margin: 0px 1px 1px 0px;
+  border-radius: 5px;
+  padding: 3px 6px;
+  background-color: #283038;
+  color: #85a6ba;
+  cursor: pointer;
+}
+
+.cast-member:hover {
+  color: #b1c8d7;
+}

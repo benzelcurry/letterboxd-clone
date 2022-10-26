@@ -51,10 +51,10 @@ const MoviePage = ({ film, setFilm }) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      setCast([]);
       for (let i = 0; i < data.cast.length; i++) {
         setCast(current => [...current, data.cast[i].name])
       }
-      console.log(cast);
     })
   }, [info]);
 
@@ -74,23 +74,14 @@ const MoviePage = ({ film, setFilm }) => {
           <div>{info.overview}</div>
           <div className="people-container">
             <div className="people-title">Cast</div>
-            {/* {popSix.map((movie)=>
-                <MovieContainer key={movie.id}
-                  title={movie.title}
-                  poster={movie.poster_path}
-                  average={movie.vote_average}
-                  release={movie.release_date}
-                  overview={movie.overview}
-                  film={film}
-                  setFilm={setFilm}
-                />
-              )} */}
             <div className="cast-container">
-              {cast.map((member) => 
-                <div key={member}>
-                  {member}
-                </div>)
-              }
+              {cast.map((member) => {
+                return (
+                  <div className='cast-member'>
+                    {member}
+                  </div>
+                )}
+              )}
             </div>
           </div>
         </div>
