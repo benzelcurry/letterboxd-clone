@@ -62,7 +62,8 @@
 }
 
 .average-score {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  margin-top: 20px;
 }
 
 .people-title {
@@ -103,4 +104,34 @@
 
 .director:hover {
   color: #39a4d7;
+}
+
+.sign-up-box {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1px;
+  flex-direction: column;
+}
+
+.review-half, .share-half {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 43px;
+  width: 230px;
+  background-color: #445566;
+  cursor: pointer;
+}
+
+.review-half:hover,
+.share-half:hover {
+  color: #fff;
+}
+
+.review-half {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.share-half {
+  border-radius: 0px 0px 5px 5px;
 }

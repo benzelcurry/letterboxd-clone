@@ -96,9 +96,12 @@ const MoviePage = ({ film, setFilm }) => {
           </div>
         </div>
         <div className="details-right">
-          Sign up container will go here
+          <div className="sign-up-box">
+            <div className="review-half">Sign in to log, rate or review</div>
+            <div className="share-half">Share</div>
+          </div>
           <div className='average-score'>
-            Average Score: {info.average}
+            Average Score: {info.average} / 10
           </div>
         </div>
       </div>
