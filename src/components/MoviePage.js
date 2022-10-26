@@ -20,6 +20,7 @@ const MoviePage = ({ film, setFilm }) => {
     release: null,
   })
   const [cast, setCast] = useState([]);
+  const [director, setDirector] = useState(null);
 
   useEffect(() => {
     const filmArr = film.split(' ');
@@ -55,6 +56,12 @@ const MoviePage = ({ film, setFilm }) => {
       for (let i = 0; i < data.cast.length; i++) {
         setCast(current => [...current, data.cast[i].name])
       }
+      for (let i = 0; i < data.crew.length; i++) {
+        if (data.crew[i].known_for_department === 'Directing') {
+          setDirector(data.crew[i].name);
+        };
+      };
+      console.log(director)
     })
   }, [info]);
 
@@ -70,6 +77,9 @@ const MoviePage = ({ film, setFilm }) => {
           <div className="film-title-container">
             <div className='film-title'>{film}</div>
             <div className="film-release">{info.release}</div>
+            <div className="directed-by">Directed by 
+              <div className='director'>{director}</div>
+            </div>
           </div>
           <div>{info.overview}</div>
           <div className="people-container">
@@ -77,7 +87,7 @@ const MoviePage = ({ film, setFilm }) => {
             <div className="cast-container">
               {cast.map((member) => {
                 return (
-                  <div className='cast-member'>
+                  <div className='cast-member' key={member}>
                     {member}
                   </div>
                 )}

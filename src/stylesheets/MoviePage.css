@@ -24,6 +24,7 @@
   gap: 50px;
   grid-template-columns: 1fr 2fr 1fr;
   max-width: 1200px;
+  color: #85a6ba;
 }
 
 .film-poster {
@@ -42,6 +43,7 @@
 .film-title {
   font-family: tiempos;
   font-size: 32px;
+  color: white;
 }
 
 /* MAKE THIS SO IT'S INLINE WITH MOVIE TITLE */
@@ -77,4 +79,13 @@
 
 .cast-member:hover {
   color: #b1c8d7;
+}
+
+.directed-by {
+  display: flex;
+  gap: 10px;
+}
+
+.director {
+  cursor: pointer;
 }
