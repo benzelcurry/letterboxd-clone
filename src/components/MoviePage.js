@@ -72,15 +72,15 @@ const MoviePage = ({ film, setFilm }) => {
         <div className="details-left">
           <img src={API_IMG + info.poster} alt={`${film} poster`} className='film-poster' />
         </div>
-        <div className="details-mid">
-          {/* TITLE CONTAINER NEEDS TO BE MADE TO EXTEND OVER RIGHT COLUMN OF GRID */}
-          <div className="film-title-container">
+        {/* TITLE CONTAINER NEEDS TO BE MADE TO EXTEND OVER RIGHT COLUMN OF GRID */}
+        <div className="film-title-container">
             <div className='film-title'>{film}</div>
             <div className="film-release">{info.release}</div>
             <div className="directed-by">Directed by 
               <div className='director'>{director}</div>
             </div>
           </div>
+        <div className="details-mid">
           <div className='overview'>{info.overview}</div>
           <div className="people-container">
             <div className="people-title">Cast</div>
