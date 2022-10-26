@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Nav from './Nav';
 import '../stylesheets/MoviePage.css';
+import { createRoutesFromElements } from 'react-router-dom';
 
 const API_SEARCH = process.env.REACT_APP_API_SEARCH;
 const API_IMG = 'https://image.tmdb.org/t/p/original/';
@@ -10,7 +11,6 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 // GET CAST INFO TO DISPLAY ON PAGE
 const MoviePage = ({ film, setFilm }) => {
   const [search, setSearch] = useState(null);
-  const random = 'random';
   const [info, setInfo] = useState({
     overview: null,
     filmID: null,
@@ -19,6 +19,7 @@ const MoviePage = ({ film, setFilm }) => {
     average: null,
     release: null,
   })
+  const [cast, setCast] = useState([]);
 
   useEffect(() => {
     const filmArr = film.split(' ');
@@ -50,6 +51,10 @@ const MoviePage = ({ film, setFilm }) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      for (let i = 0; i < data.cast.length; i++) {
+        setCast(current => [...current, data.cast[i].name])
+      }
+      console.log(cast);
     })
   }, [info]);
 
@@ -66,12 +71,34 @@ const MoviePage = ({ film, setFilm }) => {
             <div className='film-title'>{film}</div>
             <div className="film-release">{info.release}</div>
           </div>
-          <p>{info.overview}</p>
-          <p>{info.average}</p>
-          <p>{info.release}</p>
+          <div>{info.overview}</div>
+          <div className="people-container">
+            <div className="people-title">Cast</div>
+            {/* {popSix.map((movie)=>
+                <MovieContainer key={movie.id}
+                  title={movie.title}
+                  poster={movie.poster_path}
+                  average={movie.vote_average}
+                  release={movie.release_date}
+                  overview={movie.overview}
+                  film={film}
+                  setFilm={setFilm}
+                />
+              )} */}
+            <div className="cast-container">
+              {cast.map((member) => 
+                <div key={member}>
+                  {member}
+                </div>)
+              }
+            </div>
+          </div>
         </div>
         <div className="details-right">
           Sign up container will go here
+          <div className='average-score'>
+            Average Score: {info.average}
+          </div>
         </div>
       </div>
     </div>
