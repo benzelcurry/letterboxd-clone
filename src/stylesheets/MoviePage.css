@@ -49,6 +49,16 @@
 /* MAKE THIS SO IT'S INLINE WITH MOVIE TITLE */
 .film-release {
   font-size: 1.2rem;
+  border-bottom: solid 1px #85a6ba;
+  cursor: pointer;
+}
+
+.film-release:hover {
+  color: #39a4d7;
+}
+
+.overview {
+  margin: 30px 0px 30px 0px;
 }
 
 .average-score {
@@ -87,5 +97,10 @@
 }
 
 .director {
+  border-bottom: solid 1px #85a6ba;
   cursor: pointer;
+}
+
+.director:hover {
+  color: #39a4d7;
 }

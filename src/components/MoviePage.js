@@ -61,7 +61,6 @@ const MoviePage = ({ film, setFilm }) => {
           setDirector(data.crew[i].name);
         };
       };
-      console.log(director)
     })
   }, [info]);
 
@@ -74,6 +73,7 @@ const MoviePage = ({ film, setFilm }) => {
           <img src={API_IMG + info.poster} alt={`${film} poster`} className='film-poster' />
         </div>
         <div className="details-mid">
+          {/* TITLE CONTAINER NEEDS TO BE MADE TO EXTEND OVER RIGHT COLUMN OF GRID */}
           <div className="film-title-container">
             <div className='film-title'>{film}</div>
             <div className="film-release">{info.release}</div>
@@ -81,7 +81,7 @@ const MoviePage = ({ film, setFilm }) => {
               <div className='director'>{director}</div>
             </div>
           </div>
-          <div>{info.overview}</div>
+          <div className='overview'>{info.overview}</div>
           <div className="people-container">
             <div className="people-title">Cast</div>
             <div className="cast-container">
