@@ -64,6 +64,7 @@
 }
 
 .details-mid {
+  min-height: 400px;
   grid-column-start: 2;
 }
 
@@ -76,8 +77,15 @@
   margin-top: 20px;
 }
 
-.people-title {
+.people-options {
+  display: flex;
+  gap: 20px;
   border-bottom: solid 1px grey;
+}
+
+.people-options > div:hover {
+  cursor: pointer;
+  color: white;
 }
 
 .cast-container {
@@ -87,7 +95,8 @@
   gap: 5px;
 }
 
-.cast-member {
+.cast-member,
+.genre {
   display: flex;
   font-size: 14px;
   margin: 0px 1px 1px 0px;
@@ -98,8 +107,16 @@
   cursor: pointer;
 }
 
-.cast-member:hover {
+.cast-member:hover,
+.genre:hover {
   color: #b1c8d7;
+}
+
+.genres-list {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .directed-by {

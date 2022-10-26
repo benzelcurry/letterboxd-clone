@@ -18,10 +18,18 @@ const MoviePage = ({ film, setFilm }) => {
     poster: null,
     average: null,
     release: null,
+    genres: null,
   })
+  const [genres, setGenres] = useState([]);
   const [cast, setCast] = useState([]);
   const [director, setDirector] = useState(null);
+  const [shown, setShown] = useState('cast');
 
+  const handleClick = (e) => {
+    setShown(e.target.id);
+  }
+
+  // Creates a link that can be used to search for film info based on film name
   useEffect(() => {
     const filmArr = film.split(' ');
     const filmQuery = filmArr.join('-');
@@ -30,23 +38,50 @@ const MoviePage = ({ film, setFilm }) => {
     setSearch(API_SEARCH + filmQuery);
   }, [])
 
+  // Pulls the genre IDs and correlated genres and sets them to a state variable
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US)`)
+    .then((response) => response.json())
+    .then((data) => {
+      setGenres([]);
+      for (let i = 0; i < data.genres.length; i++) {
+        setGenres(current => [...current, data.genres[i]])
+      }
+    })
+  }, [info])
+
+  // Pulls film info and assigns to a state variable
   useEffect(() => {
     fetch(search)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+
+      let genreList = [];
+
+      for (let i = 0; i < data.results[0].genre_ids.length; i++) {
+        for (let j = 0; j < genres.length; j++) {
+          if (data.results[0].genre_ids[i] === genres[j].id) {
+            genreList.push(genres[j].name)
+          }
+        }
+      }
+
       setInfo({
         overview: data.results[0].overview,
         filmID: data.results[0].id,
         backdrop: data.results[0].backdrop_path,
         poster: data.results[0].poster_path,
         average: data.results[0].vote_average,
-        release: data.results[0].release_date.slice(0, 4)
+        release: data.results[0].release_date.slice(0, 4),
+        genres: genreList
       })
-    })
-  }, [search]);
 
-  // THIS PULLS CAST INFO
+      console.log(`Genres: ${info.genres}`);
+    })
+  }, [search, shown]);
+
+  // Pulls cast info and assigns to a state variable
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${info.filmID}/credits?api_key=${API_KEY}&language=en-US`)
     .then((response) => response.json())
@@ -72,7 +107,6 @@ const MoviePage = ({ film, setFilm }) => {
         <div className="details-left">
           <img src={API_IMG + info.poster} alt={`${film} poster`} className='film-poster' />
         </div>
-        {/* TITLE CONTAINER NEEDS TO BE MADE TO EXTEND OVER RIGHT COLUMN OF GRID */}
         <div className="film-title-container">
             <div className='film-title'>{film}</div>
             <div className="film-release">{info.release}</div>
@@ -83,17 +117,36 @@ const MoviePage = ({ film, setFilm }) => {
         <div className="details-mid">
           <div className='overview'>{info.overview}</div>
           <div className="people-container">
-            <div className="people-title">Cast</div>
-            <div className="cast-container">
-              {cast.map((member) => {
+            <div className="people-options">
+              <div id='cast' onClick={e => handleClick(e)}>Cast</div>
+              <div id='genres' onClick={e => handleClick(e)}>Genres</div>
+            </div>
+            { (shown === 'cast') ?
+              <div className="cast-container">
+                {cast.map((member) => {
+                  return (
+                    <div className='cast-member' key={member}>
+                      {member}
+                    </div>
+                  )}
+                )}
+              </div>
+              : null
+            }
+          </div>
+          { (shown === 'genres') ? 
+            <div className='genres-list'>
+              {/* The genres are: {info.genres} */}
+              {info.genres.map((genre) => {
                 return (
-                  <div className='cast-member' key={member}>
-                    {member}
+                  <div className='genre' key={genre}>
+                    {genre}
                   </div>
                 )}
               )}
             </div>
-          </div>
+            : null
+          }
         </div>
         <div className="details-right">
           <div className="sign-up-box">
