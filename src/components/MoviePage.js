@@ -30,6 +30,7 @@ const MoviePage = ({ film, setFilm }) => {
   const [fx, setFx] = useState([]);
   const [sound, setSound] = useState([]);
   const [lighting, setLighting] = useState([]);
+  const [editing, setEditing] = useState([]);
   const [director, setDirector] = useState(null);
   const [shown, setShown] = useState('cast');
 
@@ -104,6 +105,7 @@ const MoviePage = ({ film, setFilm }) => {
       let fxArr = [];
       let soundArr = [];
       let lightingArr = [];
+      let editingArr = [];
 
       setCast([]);
       for (let i = 0; i < data.cast.length; i++) {
@@ -145,6 +147,10 @@ const MoviePage = ({ film, setFilm }) => {
           if (!lightingArr.includes(data.crew[i].name)) {
             lightingArr.push(data.crew[i].name)
           }
+        } else if (data.crew[i].known_for_department === 'Editing') {
+          if (!editingArr.push(data.crew[i].name)) {
+            editingArr.push(data.crew[i].name)
+          }
         }
       };
 
@@ -156,6 +162,7 @@ const MoviePage = ({ film, setFilm }) => {
       setFx(fxArr);
       setSound(soundArr);
       setLighting(lightingArr);
+      setEditing(editingArr);
 
     })
   }, [info]);
@@ -301,6 +308,18 @@ const MoviePage = ({ film, setFilm }) => {
                   {lighting.map((member) => {
                     return (
                       <div className="lighting-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
+              { editing.length > 0 ? 
+                <div className="editing-crew">Editing</div> : null }
+              { editing.length > 0 ? 
+                <div className="editing-members">
+                  {editing.map((member) => {
+                    return (
+                      <div className="editing-member" key={member}>
                         {member}
                       </div>
                     )
