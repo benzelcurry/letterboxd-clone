@@ -28,6 +28,7 @@ const MoviePage = ({ film, setFilm }) => {
   const [camera, setCamera] = useState([]);
   const [art, setArt] = useState([]);
   const [fx, setFx] = useState([]);
+  const [sound, setSound] = useState([]);
   const [director, setDirector] = useState(null);
   const [shown, setShown] = useState('cast');
 
@@ -100,6 +101,7 @@ const MoviePage = ({ film, setFilm }) => {
       let cameraArr = [];
       let artArr = [];
       let fxArr = [];
+      let soundArr = [];
 
       setCast([]);
       for (let i = 0; i < data.cast.length; i++) {
@@ -133,6 +135,10 @@ const MoviePage = ({ film, setFilm }) => {
           if (!fxArr.includes(data.crew[i].name)) {
             fxArr.push(data.crew[i].name)
           }
+        } else if (data.crew[i].known_for_department === 'Sound') {
+          if (!soundArr.includes(data.crew[i].name)) {
+            soundArr.push(data.crew[i].name)
+          }
         }
       };
 
@@ -142,6 +148,7 @@ const MoviePage = ({ film, setFilm }) => {
       setCamera(cameraArr);
       setArt(artArr);
       setFx(fxArr);
+      setSound(soundArr);
 
     })
   }, [info]);
@@ -196,56 +203,66 @@ const MoviePage = ({ film, setFilm }) => {
           }
           { (shown === 'crew') ?
             <div className="crew-list">
-              <div className="writing-crew">Writing</div>
-              <div className="writing-members">
-                {writing.map((member) => {
-                  return (
-                    <div className="crew-member" key={member}>
-                      {member}
-                    </div>
-                  )
-                })}
-              </div>
-              <div className="production-crew">Production</div>
-              <div className="production-members">
-                {production.map((member) => {
-                  return (
-                    <div className="production-member" key={member}>
-                      {member}
-                    </div>
-                  )
-                })}
-              </div>
-              <div className="makeup-crew">Makeup</div>
-              <div className="makeup-members">
-                {makeup.map((member) => {
-                  return (
-                    <div className="makeup-member" key={member}>
-                      {member}
-                    </div>
-                  )
-                })}
-              </div>
-              <div className="camera-crew">Camera</div>
-              <div className="camera-members">
-                {camera.map((member) => {
-                  return (
-                    <div className="camera-member" key={member}>
-                      {member}
-                    </div>
-                  )
-                })}
-              </div>
-              <div className="art-crew">Art</div>
-              <div className="art-members">
-                {art.map((member) => {
-                  return (
-                    <div className="art-member" key={member}>
-                      {member}
-                    </div>
-                  )
-                })}
-              </div>
+              { writing.length > 0 ? 
+                <div className="writing-crew">Writing</div> : null }
+              { writing.length > 0 ? 
+                <div className="writing-members">
+                  {writing.map((member) => {
+                    return (
+                      <div className="crew-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
+              { production.length > 0 ?
+                <div className="production-crew">Production</div> : null }
+              { production.length > 0 ? 
+                <div className="production-members">
+                  {production.map((member) => {
+                    return (
+                      <div className="production-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
+              { makeup.length > 0 ? 
+                <div className="makeup-crew">Makeup</div> : null }
+              { makeup.length > 0 ?
+                <div className="makeup-members">
+                  {makeup.map((member) => {
+                    return (
+                      <div className="makeup-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
+              { camera.length > 0 ?
+                <div className="camera-crew">Camera</div> : null }
+              { camera.length > 0 ?
+                <div className="camera-members">
+                  {camera.map((member) => {
+                    return (
+                      <div className="camera-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
+              { art.length > 0 ?
+                <div className="art-crew">Art</div> : null }
+              { art.length > 0 ?
+                <div className="art-members">
+                  {art.map((member) => {
+                    return (
+                      <div className="art-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
               { fx.length > 0 ?
                 <div className="fx-crew">Visual Effects</div> : null }
               { fx.length > 0 ? 
@@ -258,6 +275,18 @@ const MoviePage = ({ film, setFilm }) => {
                   )
                 })}
               </div> : null }
+              { sound.length > 0 ?
+                <div className="sound-crew">Sound</div> : null }
+              { sound.length > 0 ?
+                <div className="sound-members">
+                  {sound.map((member) => {
+                    return (
+                      <div className="sound-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
             </div>
             : null
           }
