@@ -22,6 +22,7 @@ const MoviePage = ({ film, setFilm }) => {
   })
   const [genres, setGenres] = useState([]);
   const [cast, setCast] = useState([]);
+  const [writing, setWriting] = useState([]);
   const [director, setDirector] = useState(null);
   const [shown, setShown] = useState('cast');
 
@@ -87,6 +88,9 @@ const MoviePage = ({ film, setFilm }) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+
+      let writingArr = [];
+
       setCast([]);
       for (let i = 0; i < data.cast.length; i++) {
         setCast(current => [...current, data.cast[i].name])
@@ -94,8 +98,14 @@ const MoviePage = ({ film, setFilm }) => {
       for (let i = 0; i < data.crew.length; i++) {
         if (data.crew[i].known_for_department === 'Directing') {
           setDirector(data.crew[i].name);
+        } else if (data.crew[i].known_for_department === 'Writing') {
+          if (!writingArr.includes(data.crew[i].name)) {
+            writingArr.push(data.crew[i].name);
+          }
         };
       };
+      setWriting(writingArr);
+
     })
   }, [info]);
 
@@ -119,6 +129,7 @@ const MoviePage = ({ film, setFilm }) => {
           <div className="people-container">
             <div className="people-options">
               <div id='cast' onClick={e => handleClick(e)}>Cast</div>
+              <div id="crew" onClick={e => handleClick(e)}>Crew</div>
               <div id='genres' onClick={e => handleClick(e)}>Genres</div>
             </div>
             { (shown === 'cast') ?
@@ -136,11 +147,22 @@ const MoviePage = ({ film, setFilm }) => {
           </div>
           { (shown === 'genres') ? 
             <div className='genres-list'>
-              {/* The genres are: {info.genres} */}
               {info.genres.map((genre) => {
                 return (
                   <div className='genre' key={genre}>
                     {genre}
+                  </div>
+                )}
+              )}
+            </div>
+            : null
+          }
+          { (shown === 'crew') ?
+            <div className="crew-list">
+              {writing.map((member) => {
+                return (
+                  <div className="crew-member" key={member}> 
+                    {member}
                   </div>
                 )}
               )}
