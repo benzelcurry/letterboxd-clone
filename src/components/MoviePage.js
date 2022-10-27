@@ -239,132 +239,132 @@ const MoviePage = ({ film, setFilm }) => {
           { (shown === 'crew') ?
             <div className="crew-list">
               { writing.length > 0 ? 
-                <div className="writing-crew">Writing</div> : null }
+                <div className="crew">Writing <span className="empty"></span></div> : null }
               { writing.length > 0 ? 
-                <div className="writing-members">
+                <div className="members">
                   {writing.map((member) => {
                     return (
-                      <div className="crew-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { production.length > 0 ?
-                <div className="production-crew">Production</div> : null }
+                <div className="crew">Production <span className='empty'></span></div> : null }
               { production.length > 0 ? 
-                <div className="production-members">
+                <div className="members">
                   {production.map((member) => {
                     return (
-                      <div className="production-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { makeup.length > 0 ? 
-                <div className="makeup-crew">Makeup</div> : null }
+                <div className="crew">Makeup <span className='empty'></span></div> : null }
               { makeup.length > 0 ?
-                <div className="makeup-members">
+                <div className="members">
                   {makeup.map((member) => {
                     return (
-                      <div className="makeup-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { camera.length > 0 ?
-                <div className="camera-crew">Camera</div> : null }
+                <div className="crew">Camera <span className='empty'></span></div> : null }
               { camera.length > 0 ?
-                <div className="camera-members">
+                <div className="members">
                   {camera.map((member) => {
                     return (
-                      <div className="camera-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { art.length > 0 ?
-                <div className="art-crew">Art</div> : null }
+                <div className="crew">Art <span className='empty'></span></div> : null }
               { art.length > 0 ?
-                <div className="art-members">
+                <div className="members">
                   {art.map((member) => {
                     return (
-                      <div className="art-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { fx.length > 0 ?
-                <div className="fx-crew">Visual Effects</div> : null }
+                <div className="crew">Visual Effects <span className='empty'></span></div> : null }
               { fx.length > 0 ? 
-                <div className="fx-members">
+                <div className="members">
                 {fx.map((member) => {
                   return (
-                    <div className="fx-member" key={member}>
+                    <div className="member" key={member}>
                       {member}
                     </div>
                   )
                 })}
               </div> : null }
               { sound.length > 0 ?
-                <div className="sound-crew">Sound</div> : null }
+                <div className="crew">Sound <span className='empty'></span></div> : null }
               { sound.length > 0 ?
-                <div className="sound-members">
+                <div className="members">
                   {sound.map((member) => {
                     return (
-                      <div className="sound-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { lighting.length > 0 ?
-                <div className="lighting-crew">Lighting</div> : null }
+                <div className="crew">Lighting <span className='empty'></span></div> : null }
               { lighting.length > 0 ? 
-                <div className="lighting-members">
+                <div className="members">
                   {lighting.map((member) => {
                     return (
-                      <div className="lighting-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { editing.length > 0 ? 
-                <div className="editing-crew">Editing</div> : null }
+                <div className="crew">Editing <span className='empty'></span></div> : null }
               { editing.length > 0 ? 
-                <div className="editing-members">
+                <div className="members">
                   {editing.map((member) => {
                     return (
-                      <div className="editing-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { directing.length > 0 ? 
-                <div className="directing-members">Directing</div> : null }
+                <div className="members">Directing <span className='empty'></span></div> : null }
               { directing.length > 0 ? 
-                <div className="directing-members">
+                <div className="members">
                   {directing.map((member) => {
                     return (
-                      <div className="directing-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )
                   })}
                 </div> : null }
               { misc.length > 0 ?
-                <div className="misc-members">Misc. Crew</div> : null }
+                <div className="members">Misc. Crew <span className='empty'></span></div> : null }
               { misc.length > 0 ? 
-                <div className="misc-members">
+                <div className="members">
                   {misc.map((member) => {
                     return (
-                      <div className="misc-member" key={member}>
+                      <div className="member" key={member}>
                         {member}
                       </div>
                     )

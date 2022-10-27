@@ -96,6 +96,7 @@
 }
 
 .cast-member,
+.member,
 .genre {
   display: flex;
   font-size: 14px;
@@ -165,5 +166,30 @@
 
 .crew-list {
   display: grid;
+  margin-top: 10px;
+  gap: 5px;
   grid-template-columns: 1fr 1.5fr;
+}
+
+.crew {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.empty {
+  flex-grow: 1;
+  margin-top: 16px;
+  margin-left: 5px;
+  border-bottom: dotted 1px grey;
+  display: flex;
+  align-self: start;
+  overflow: hidden;
+}
+
+.members {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
