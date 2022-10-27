@@ -27,6 +27,7 @@ const MoviePage = ({ film, setFilm }) => {
   const [makeup, setMakeup] = useState([]);
   const [camera, setCamera] = useState([]);
   const [art, setArt] = useState([]);
+  const [fx, setFx] = useState([]);
   const [director, setDirector] = useState(null);
   const [shown, setShown] = useState('cast');
 
@@ -98,6 +99,7 @@ const MoviePage = ({ film, setFilm }) => {
       let makeupArr = [];
       let cameraArr = [];
       let artArr = [];
+      let fxArr = [];
 
       setCast([]);
       for (let i = 0; i < data.cast.length; i++) {
@@ -127,6 +129,10 @@ const MoviePage = ({ film, setFilm }) => {
           if (!artArr.includes(data.crew[i].name)) {
             artArr.push(data.crew[i].name)
           }
+        } else if (data.crew[i].known_for_department === 'Visual Effects') {
+          if (!fxArr.includes(data.crew[i].name)) {
+            fxArr.push(data.crew[i].name)
+          }
         }
       };
 
@@ -135,6 +141,7 @@ const MoviePage = ({ film, setFilm }) => {
       setMakeup(makeupArr);
       setCamera(cameraArr);
       setArt(artArr);
+      setFx(fxArr);
 
     })
   }, [info]);
@@ -239,6 +246,18 @@ const MoviePage = ({ film, setFilm }) => {
                   )
                 })}
               </div>
+              { fx.length > 0 ?
+                <div className="fx-crew">Visual Effects</div> : null }
+              { fx.length > 0 ? 
+                <div className="fx-members">
+                {fx.map((member) => {
+                  return (
+                    <div className="fx-member" key={member}>
+                      {member}
+                    </div>
+                  )
+                })}
+              </div> : null }
             </div>
             : null
           }
