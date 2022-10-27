@@ -23,6 +23,7 @@ const MoviePage = ({ film, setFilm }) => {
   const [genres, setGenres] = useState([]);
   const [cast, setCast] = useState([]);
   const [writing, setWriting] = useState([]);
+  const [production, setProduction] = useState([]);
   const [director, setDirector] = useState(null);
   const [shown, setShown] = useState('cast');
 
@@ -82,7 +83,7 @@ const MoviePage = ({ film, setFilm }) => {
     })
   }, [search, shown]);
 
-  // Pulls cast info and assigns to a state variable
+  // Pulls cast and crew info and assigns to a state variable
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${info.filmID}/credits?api_key=${API_KEY}&language=en-US`)
     .then((response) => response.json())
@@ -90,11 +91,13 @@ const MoviePage = ({ film, setFilm }) => {
       console.log(data);
 
       let writingArr = [];
+      let productionArr = [];
 
       setCast([]);
       for (let i = 0; i < data.cast.length; i++) {
         setCast(current => [...current, data.cast[i].name])
       }
+
       for (let i = 0; i < data.crew.length; i++) {
         if (data.crew[i].known_for_department === 'Directing') {
           setDirector(data.crew[i].name);
@@ -102,9 +105,15 @@ const MoviePage = ({ film, setFilm }) => {
           if (!writingArr.includes(data.crew[i].name)) {
             writingArr.push(data.crew[i].name);
           }
-        };
+        } else if (data.crew[i].known_for_department === 'Production') {
+          if (!productionArr.includes(data.crew[i].name)) {
+            productionArr.push(data.crew[i].name)
+          }
+        }
       };
+
       setWriting(writingArr);
+      setProduction(productionArr);
 
     })
   }, [info]);
@@ -152,8 +161,8 @@ const MoviePage = ({ film, setFilm }) => {
                   <div className='genre' key={genre}>
                     {genre}
                   </div>
-                )}
-              )}
+                )
+              })}
             </div>
             : null
           }
@@ -166,8 +175,18 @@ const MoviePage = ({ film, setFilm }) => {
                     <div className="crew-member" key={member}>
                       {member}
                     </div>
-                  )}
-                )}
+                  )
+                })}
+              </div>
+              <div className="production-crew">Production</div>
+              <div className="production-members">
+                {production.map((member) => {
+                  return (
+                    <div className="production-member" key={member}>
+                      {member}
+                    </div>
+                  )
+                })}
               </div>
             </div>
             : null
