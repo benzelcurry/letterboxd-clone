@@ -162,3 +162,8 @@
 .share-half {
   border-radius: 0px 0px 5px 5px;
 }
+
+.crew-list {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}

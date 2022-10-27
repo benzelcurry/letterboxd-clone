@@ -159,13 +159,16 @@ const MoviePage = ({ film, setFilm }) => {
           }
           { (shown === 'crew') ?
             <div className="crew-list">
-              {writing.map((member) => {
-                return (
-                  <div className="crew-member" key={member}> 
-                    {member}
-                  </div>
+              <div className="writing-crew">Writing</div>
+              <div className="writing-members">
+                {writing.map((member) => {
+                  return (
+                    <div className="crew-member" key={member}>
+                      {member}
+                    </div>
+                  )}
                 )}
-              )}
+              </div>
             </div>
             : null
           }
