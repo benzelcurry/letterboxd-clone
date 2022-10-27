@@ -31,7 +31,9 @@ const MoviePage = ({ film, setFilm }) => {
   const [sound, setSound] = useState([]);
   const [lighting, setLighting] = useState([]);
   const [editing, setEditing] = useState([]);
-  const [director, setDirector] = useState(null);
+  const [directing, setDirecting] = useState([]);
+  const [director, setDirector] = useState([]);
+  const [misc, setMisc] = useState([]);
   const [shown, setShown] = useState('cast');
 
   const handleClick = (e) => {
@@ -106,6 +108,8 @@ const MoviePage = ({ film, setFilm }) => {
       let soundArr = [];
       let lightingArr = [];
       let editingArr = [];
+      let directingArr = [];
+      let miscArr = [];
 
       setCast([]);
       for (let i = 0; i < data.cast.length; i++) {
@@ -115,6 +119,9 @@ const MoviePage = ({ film, setFilm }) => {
       for (let i = 0; i < data.crew.length; i++) {
         if (data.crew[i].known_for_department === 'Directing') {
           setDirector(data.crew[i].name);
+          if (!directingArr.includes(data.crew[i].name)) {
+            directingArr.push(data.crew[i].name)
+          }
         } else if (data.crew[i].known_for_department === 'Writing') {
           if (!writingArr.includes(data.crew[i].name)) {
             writingArr.push(data.crew[i].name);
@@ -147,9 +154,17 @@ const MoviePage = ({ film, setFilm }) => {
           if (!lightingArr.includes(data.crew[i].name)) {
             lightingArr.push(data.crew[i].name)
           }
+        } else if (data.crew[i].known_for_department === 'Directing') {
+          if (!directingArr.includes(data.crew[i].name)) {
+            directingArr.push(data.crew[i].name)
+          }
         } else if (data.crew[i].known_for_department === 'Editing') {
-          if (!editingArr.push(data.crew[i].name)) {
+          if (!editingArr.includes(data.crew[i].name)) {
             editingArr.push(data.crew[i].name)
+          }
+        } else if (data.crew[i].known_for_department === 'Crew') {
+          if (!miscArr.includes(data.crew[i].name)) {
+            miscArr.push(data.crew[i].name)
           }
         }
       };
@@ -163,6 +178,8 @@ const MoviePage = ({ film, setFilm }) => {
       setSound(soundArr);
       setLighting(lightingArr);
       setEditing(editingArr);
+      setDirecting(directingArr);
+      setMisc(miscArr);
 
     })
   }, [info]);
@@ -320,6 +337,30 @@ const MoviePage = ({ film, setFilm }) => {
                   {editing.map((member) => {
                     return (
                       <div className="editing-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
+              { directing.length > 0 ? 
+                <div className="directing-members">Directing</div> : null }
+              { directing.length > 0 ? 
+                <div className="directing-members">
+                  {directing.map((member) => {
+                    return (
+                      <div className="directing-member" key={member}>
+                        {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
+              { misc.length > 0 ?
+                <div className="misc-members">Misc. Crew</div> : null }
+              { misc.length > 0 ? 
+                <div className="misc-members">
+                  {misc.map((member) => {
+                    return (
+                      <div className="misc-member" key={member}>
                         {member}
                       </div>
                     )
