@@ -99,6 +99,7 @@ const MoviePage = ({ film, setFilm }) => {
     .then((data) => {
       console.log(data);
 
+      let directors = [];
       let writingArr = [];
       let productionArr = [];
       let makeupArr = [];
@@ -118,7 +119,9 @@ const MoviePage = ({ film, setFilm }) => {
 
       for (let i = 0; i < data.crew.length; i++) {
         if (data.crew[i].known_for_department === 'Directing') {
-          setDirector(data.crew[i].name);
+          if (data.crew[i].job === 'Director') {
+            directors.push(data.crew[i].name)
+          }
           if (!directingArr.includes(data.crew[i].name)) {
             directingArr.push(data.crew[i].name)
           }
@@ -180,6 +183,7 @@ const MoviePage = ({ film, setFilm }) => {
       setEditing(editingArr);
       setDirecting(directingArr);
       setMisc(miscArr);
+      setDirector(directors.join(' '));
 
     })
   }, [info]);
