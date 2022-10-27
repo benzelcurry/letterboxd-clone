@@ -25,7 +25,7 @@ const MoviePage = ({ film, setFilm }) => {
   const [writing, setWriting] = useState([]);
   const [production, setProduction] = useState([]);
   const [makeup, setMakeup] = useState([]);
-  
+  const [camera, setCamera] = useState([]);
   const [director, setDirector] = useState(null);
   const [shown, setShown] = useState('cast');
 
@@ -95,6 +95,7 @@ const MoviePage = ({ film, setFilm }) => {
       let writingArr = [];
       let productionArr = [];
       let makeupArr = [];
+      let cameraArr = [];
 
       setCast([]);
       for (let i = 0; i < data.cast.length; i++) {
@@ -116,12 +117,17 @@ const MoviePage = ({ film, setFilm }) => {
           if (!makeupArr.includes(data.crew[i].name)) {
             makeupArr.push(data.crew[i].name)
           }
+        } else if (data.crew[i].known_for_department === 'Camera') {
+          if (!cameraArr.includes(data.crew[i].name)) {
+            cameraArr.push(data.crew[i].name)
+          }
         }
       };
 
       setWriting(writingArr);
       setProduction(productionArr);
       setMakeup(makeupArr);
+      setCamera(cameraArr);
 
     })
   }, [info]);
@@ -201,6 +207,16 @@ const MoviePage = ({ film, setFilm }) => {
                 {makeup.map((member) => {
                   return (
                     <div className="makeup-member" key={member}>
+                      {member}
+                    </div>
+                  )
+                })}
+              </div>
+              <div className="camera-crew">Camera</div>
+              <div className="camera-members">
+                {camera.map((member) => {
+                  return (
+                    <div className="camera-member" key={member}>
                       {member}
                     </div>
                   )
