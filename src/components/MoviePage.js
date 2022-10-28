@@ -37,8 +37,9 @@ const MoviePage = ({ film, setFilm }) => {
   const [studios, setStudios] = useState([]);
   const [country, setCountry] = useState([]);
   const [spoken, setSpoken] = useState([]);
-  const [altTitle, setAltTitle] = useState([]);
+  const [altTitle, setAltTitle] = useState(null);
   const [runtime, setRuntime] = useState([]);
+  const [tagline, setTagline] = useState(null);
   const [shown, setShown] = useState('cast');
 
   const handleClick = (e) => {
@@ -116,6 +117,7 @@ const MoviePage = ({ film, setFilm }) => {
       setStudios(studiosArr);
       setCountry(countriesArr);
       setSpoken(spokenArr);
+      setAltTitle(data.original_title);
     })
   }, [info]);
 
@@ -437,6 +439,12 @@ const MoviePage = ({ film, setFilm }) => {
                       </div>
                     )
                   })}
+                </div> : null }  
+              { altTitle !== film ? 
+                <div className="detail-type">Original Title <span className='empty'></span></div> : null }
+              { altTitle !== film ?
+                <div className="details">
+                  <div>{altTitle}</div>
                 </div> : null }  
             </div>
             : null
