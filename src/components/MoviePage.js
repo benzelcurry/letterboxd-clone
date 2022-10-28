@@ -234,7 +234,7 @@ const MoviePage = ({ film, setFilm }) => {
             </div>
           </div>
         <div className="details-mid">
-          <div className="tagline">{tagline}</div>
+          <div className="tagline-movie">{tagline}</div>
           <div className='overview'>{info.overview}</div>
           <div className="people-container">
             <div className="people-options">
