@@ -36,7 +36,6 @@ const MoviePage = ({ film, setFilm }) => {
   const [misc, setMisc] = useState([]);
   const [studios, setStudios] = useState([]);
   const [country, setCountry] = useState([]);
-  const [origLang, setOrigLang] = useState([]);
   const [spoken, setSpoken] = useState([]);
   const [altTitle, setAltTitle] = useState([]);
   const [runtime, setRuntime] = useState([]);
@@ -100,6 +99,7 @@ const MoviePage = ({ film, setFilm }) => {
       console.log(data);
       let studiosArr = [];
       let countriesArr = [];
+      let spokenArr = [];
 
       for (let i = 0; i < data.production_companies.length; i++) {
         studiosArr.push(data.production_companies[i].name);
@@ -109,8 +109,13 @@ const MoviePage = ({ film, setFilm }) => {
         countriesArr.push(data.production_countries[i].iso_3166_1);
       }
 
+      for (let i = 0; i < data.spoken_languages.length; i++) {
+        spokenArr.push(data.spoken_languages[i].english_name);
+      }
+
       setStudios(studiosArr);
       setCountry(countriesArr);
+      setSpoken(spokenArr);
     })
   }, [info]);
 
@@ -414,6 +419,18 @@ const MoviePage = ({ film, setFilm }) => {
               { country.length > 0 ?
                 <div className="details">
                   {country.map((detail) => {
+                    return (
+                      <div className="detail" key={detail}>
+                        {detail}
+                      </div>
+                    )
+                  })}
+                </div> : null }  
+              { spoken.length > 0 ? 
+                <div className="detail-type">Spoken Language(s) <span className='empty'></span></div> : null }
+              { spoken.length > 0 ?
+                <div className="details">
+                  {spoken.map((detail) => {
                     return (
                       <div className="detail" key={detail}>
                         {detail}
