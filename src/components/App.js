@@ -77,6 +77,7 @@ const App = ({ film, setFilm }) => {
       <div className='movies-container'>
         <div className="popular-container">
           <div className="popular-title">POPULAR ON LETTERBOXD</div>
+          {/* IDEA: REMOVE WHITE THUMBNAIL BACKGROUND ON HOVER AND REPLACE W/ GREEN */}
           <div className="popular-thumbnails">
             {popSix.map((movie)=>
                 <MovieContainer key={movie.id}

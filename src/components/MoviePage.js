@@ -99,12 +99,18 @@ const MoviePage = ({ film, setFilm }) => {
     .then((data) => {
       console.log(data);
       let studiosArr = [];
+      let countriesArr = [];
 
       for (let i = 0; i < data.production_companies.length; i++) {
         studiosArr.push(data.production_companies[i].name);
       }
 
+      for (let i = 0; i < data.production_countries.length; i++) {
+        countriesArr.push(data.production_countries[i].iso_3166_1);
+      }
+
       setStudios(studiosArr);
+      setCountry(countriesArr);
     })
   }, [info]);
 
@@ -403,6 +409,18 @@ const MoviePage = ({ film, setFilm }) => {
                     )
                   })}
                 </div> : null }
+              { country.length > 0 ? 
+                <div className="detail-type">Country <span className='empty'></span></div> : null }
+              { country.length > 0 ?
+                <div className="details">
+                  {country.map((detail) => {
+                    return (
+                      <div className="detail" key={detail}>
+                        {detail}
+                      </div>
+                    )
+                  })}
+                </div> : null }  
             </div>
             : null
           }
