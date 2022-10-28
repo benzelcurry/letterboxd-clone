@@ -50,7 +50,6 @@ const App = ({ film, setFilm }) => {
     fetch(API_URL)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       setMovies(data.results);
       setBackdrop(data.results[0].backdrop_path)
       setPopSix(data.results.slice(0, 6))

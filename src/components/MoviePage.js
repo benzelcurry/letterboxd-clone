@@ -34,6 +34,12 @@ const MoviePage = ({ film, setFilm }) => {
   const [directing, setDirecting] = useState([]);
   const [director, setDirector] = useState([]);
   const [misc, setMisc] = useState([]);
+  const [studios, setStudios] = useState([]);
+  const [country, setCountry] = useState([]);
+  const [origLang, setOrigLang] = useState([]);
+  const [spoken, setSpoken] = useState([]);
+  const [altTitle, setAltTitle] = useState([]);
+  const [runtime, setRuntime] = useState([]);
   const [shown, setShown] = useState('cast');
 
   const handleClick = (e) => {
@@ -44,7 +50,6 @@ const MoviePage = ({ film, setFilm }) => {
   useEffect(() => {
     const filmArr = film.split(' ');
     const filmQuery = filmArr.join('-');
-    console.log(filmQuery);
 
     setSearch(API_SEARCH + filmQuery);
   }, [])
@@ -66,8 +71,6 @@ const MoviePage = ({ film, setFilm }) => {
     fetch(search)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
       let genreList = [];
 
       for (let i = 0; i < data.results[0].genre_ids.length; i++) {
@@ -87,17 +90,29 @@ const MoviePage = ({ film, setFilm }) => {
         release: data.results[0].release_date.slice(0, 4),
         genres: genreList
       })
-
-      console.log(`Genres: ${info.genres}`);
     })
   }, [search, shown]);
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/${info.filmID}?api_key=${API_KEY}&language=en-US)`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      let studiosArr = [];
+
+      for (let i = 0; i < data.production_companies.length; i++) {
+        studiosArr.push(data.production_companies[i].name);
+      }
+
+      setStudios(studiosArr);
+    })
+  }, [info]);
 
   // Pulls cast and crew info and assigns to a state variable
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${info.filmID}/credits?api_key=${API_KEY}&language=en-US`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
 
       let directors = [];
       let writingArr = [];
@@ -209,6 +224,7 @@ const MoviePage = ({ film, setFilm }) => {
             <div className="people-options">
               <div id='cast' onClick={e => handleClick(e)}>Cast</div>
               <div id="crew" onClick={e => handleClick(e)}>Crew</div>
+              <div id="details" onClick={e => handleClick(e)}>Details</div>
               <div id='genres' onClick={e => handleClick(e)}>Genres</div>
             </div>
             { (shown === 'cast') ?
@@ -366,6 +382,23 @@ const MoviePage = ({ film, setFilm }) => {
                     return (
                       <div className="member" key={member}>
                         {member}
+                      </div>
+                    )
+                  })}
+                </div> : null }
+            </div>
+            : null
+          }
+          { (shown === 'details') ? 
+            <div className="details-list">
+              { studios.length > 0 ? 
+                <div className="detail-type">Studios <span className='empty'></span></div> : null }
+              { studios.length > 0 ? 
+                <div className="details">
+                  {studios.map((detail) => {
+                    return (
+                      <div className="detail" key={detail}>
+                        {detail}
                       </div>
                     )
                   })}
