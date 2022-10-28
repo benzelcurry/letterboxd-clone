@@ -118,6 +118,7 @@ const MoviePage = ({ film, setFilm }) => {
       setCountry(countriesArr);
       setSpoken(spokenArr);
       setAltTitle(data.original_title);
+      setRuntime(data.runtime);
     })
   }, [info]);
 
@@ -445,6 +446,12 @@ const MoviePage = ({ film, setFilm }) => {
               { altTitle !== film ?
                 <div className="details">
                   <div>{altTitle}</div>
+                </div> : null }  
+              { runtime ? 
+                <div className="detail-type">Runtime <span className='empty'></span></div> : null }
+              { runtime ?
+                <div className="details">
+                  <div>{runtime} mins</div>
                 </div> : null }  
             </div>
             : null
