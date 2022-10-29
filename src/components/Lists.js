@@ -7,6 +7,11 @@ import Lebowski from '../images/list-mocks/lebowski.jpg';
 import Morbius from '../images/list-mocks/morbius.jpg';
 import Spiderman from '../images/list-mocks/spiderman3.jpg';
 import Room from '../images/list-mocks/the-room.jpg';
+import Avatar1 from '../images/list-avatars/avatar1.svg';
+import Avatar2 from '../images/list-avatars/avatar2.svg';
+import Avatar3 from '../images/list-avatars/avatar3.svg';
+import Heart from '../images/heart.svg';
+import Comment from '../images/comment.svg';
 
 const Lists = () => {
   return (
@@ -26,6 +31,19 @@ const Lists = () => {
               <img src={Morbius} alt='Morbius' className='list-poster'/>
               <img src={Spiderman} alt='Spiderman 3' className='list-poster'/>
               <img src={Room} alt='The Room' className='list-poster'/>
+            </div>
+            <div className="list-name">Definitely A Real List</div>
+            <div className="list-author">
+              <img src={Avatar1} alt='User avatar' className='avatar'/>
+              <div className="author">Jeff Lebowski</div>
+              <div className="list-likes">
+                <img src={Heart} alt='Likes' className='list-icons'/>
+                27K
+              </div>
+              <div className="list-comments">
+                <img src={Comment} alt='Comments' className='list-icons'/>
+                1.8K
+              </div>
             </div>
           </div>
         </div>

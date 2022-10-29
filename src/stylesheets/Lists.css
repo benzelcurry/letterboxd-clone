@@ -46,25 +46,93 @@
   padding-bottom: 5px;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 283px;
+}
+
 .list-posters {
   display: flex;
   flex-direction: row-reverse;
   cursor: pointer;
+  border: solid 3px transparent;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.list-posters:hover {
+  border: solid 3px #00c030;
 }
 
 .first {
-  margin-top: 20px;
   height: 231px;
   border-radius: 5px;
   border: solid 1px silver;
 }
 
 .list-poster {
-  position: relative;
   margin-right: -126px;
-  margin-top: 20px;
   height: 231px;
   border-radius: 5px;
   border: solid 1px silver;
-  box-shadow: 5px 2px 7px black;
+  box-shadow: 5px 0px 7px black;
+  overflow: hidden;
+}
+
+.list-name {
+  padding-left: 10px;
+  cursor: pointer;
+  flex-shrink: 1;
+}
+
+.list-name:hover {
+  color: rgb(153, 170, 187);
+}
+
+.list-author {
+  display: flex;
+  align-items: center;
+  color: rgb(153, 170, 187);
+  padding-left: 10px;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.avatar {
+  height: 18px;
+  width: 18px;
+  background-color: rgb(76, 165, 216);
+  border-radius: 50%;
+  border: solid 1px white;
+  cursor: pointer;
+}
+
+.author {
+  cursor: pointer;
+}
+
+.author:hover {
+  color: white;
+}
+
+.list-icons {
+  height: 16px;
+  width: 16px;
+  filter: invert(72%) sepia(19%) saturate(294%) hue-rotate(169deg) brightness(92%) contrast(85%);
+}
+
+.list-likes,
+.list-comments {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.list-likes:hover,
+.list-comments:hover {
+  color: white;
 }
