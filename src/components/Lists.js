@@ -1,12 +1,16 @@
 import React from 'react';
 
 import Nav from './Nav';
+import '../stylesheets/Lists.css'
 
 const Lists = () => {
   return (
-    <div>
+    <div className='lists-container'>
       <Nav />
-      Lists stuff will go on this page. Populate with simulated lists.
+      <div className="lists-header">
+        Collect, curate, and share. Lists are the perfect way to group films.
+        <div className="lists-start">Start your own list</div>
+      </div>
     </div>
   );
 };

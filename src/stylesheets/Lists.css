@@ -1,0 +1,36 @@
+.lists-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 80px;
+}
+
+.lists-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26px;
+  margin: 30px;
+}
+
+.lists-start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 19.5px;
+  width: 140px;
+  padding: 4px 5px;
+  font-size: 13px;
+  margin-top: 30px;
+  background-color: rgb(40, 48, 56);
+  color: rgb(153, 170, 187);
+  cursor: pointer;
+}
+
+.lists-start:hover {
+  background-color: #303840;
+  color: #def;
+}
