@@ -55,7 +55,7 @@ const App = ({ film, setFilm }) => {
       setPopSix(data.results.slice(0, 6))
     })
   }, []);
-
+//sample
   return (
     <div className='app-container'>
       <Nav setMovies={setMovies} query={query} setQuery={setQuery} />
