@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   font-size: 26px;
+  color: rgb(153, 170, 187);
   margin: 30px;
 }
 
@@ -33,4 +34,37 @@
 .lists-start:hover {
   background-color: #303840;
   color: #def;
+}
+
+.popular-lists {
+  width: 950px;
+}
+
+.popular-list-title {
+  font-size: 13px;
+  border-bottom: solid 1px rgb(153, 170, 187);
+  padding-bottom: 5px;
+}
+
+.list-posters {
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+}
+
+.first {
+  margin-top: 20px;
+  height: 231px;
+  border-radius: 5px;
+  border: solid 1px silver;
+}
+
+.list-poster {
+  position: relative;
+  margin-right: -126px;
+  margin-top: 20px;
+  height: 231px;
+  border-radius: 5px;
+  border: solid 1px silver;
+  box-shadow: 5px 2px 7px black;
 }
