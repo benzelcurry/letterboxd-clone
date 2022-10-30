@@ -1,0 +1,29 @@
+.trending-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 80px;
+}
+
+.weekly-trending {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.weekly-title {
+  font-size: 13px;
+  border-bottom: solid 1px grey;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.trending-movies {
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}

@@ -40,7 +40,7 @@ const Nav = ({ setMovies, query, setQuery }) => {
         <div className='separate'>
           <div className='sign-in nav-icon'>SIGN IN</div>
           <div className="create-account nav-icon">CREATE ACCOUNT</div>
-          <Link to={'/Trending'} className="films nav-icon">FILMS</Link>
+          <Link to={'/Trending'} className="films nav-icon">TRENDING</Link>
           <Link to={'/Lists'} className='lists nav-icon'>LISTS</Link>
           <Link to={'/Members'} className='members-page nav-icon'>MEMBERS</Link>
           <div className="journal nav-icon">JOURNAL</div>

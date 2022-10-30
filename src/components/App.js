@@ -83,9 +83,6 @@ const App = ({ film, setFilm }) => {
                   title={movie.title}
                   poster={movie.poster_path}
                   average={movie.vote_average}
-                  release={movie.release_date}
-                  overview={movie.overview}
-                  film={film}
                   setFilm={setFilm}
                 />
               )}

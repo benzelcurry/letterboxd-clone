@@ -17,7 +17,7 @@ const RouteSwitch = () => {
         <Route path='/lists' element={<Lists />} />
         <Route path='/members' element={<Members />} />
         <Route path='/films/:movieName' element={<MoviePage film={film} setFilm={setFilm} />} />
-        <Route path='/trending' element={<Trending />} />
+        <Route path='/trending' element={<Trending setFilm={setFilm}/>} />
       </Routes>
     </HashRouter>
   );
