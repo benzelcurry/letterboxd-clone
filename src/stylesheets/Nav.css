@@ -3,26 +3,30 @@
 /* MAKE IT SO HEADER DOESNT APPEAR OVER NON-HOME PAGE COMPONENT CONTENT */
 
 .nav-container {
-  display: grid;
-  width: 100%;
+  display: flex;
+  width: 950px;
   justify-content: center;
   position: absolute;
   z-index: 9;
   top: 0;
   left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nav-container2 {
   display: flex;
   height: 75px;
-  gap: 200px;
-  min-width: 1000px;
-  max-width: 1400px;
+  gap: 100px;
+  /* width: 950px; */
   background-color: none;
   justify-content: space-between;
+  font-size: 13px;
 }
 
 .nav-icon {
+  white-space: nowrap;
   cursor: pointer;
   color: #c9d6e4;
   font-weight: bold;
@@ -42,7 +46,6 @@
   color: white;
   align-items: center;
   gap: 20px;
-  font-size: 1rem;
 }
 
 a {
