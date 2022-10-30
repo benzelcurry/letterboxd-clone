@@ -10,7 +10,8 @@
 .weekly-trending {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  align-items: center;
+  width: 1100px;
 }
 
 .weekly-title {
@@ -22,8 +23,7 @@
 
 .trending-movies {
   padding-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
 }
