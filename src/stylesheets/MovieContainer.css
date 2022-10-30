@@ -2,21 +2,22 @@
 HOVERED; THE ISSUE LIES WITHIN THE BORDER SIZE INCREASING */
 
 .poster-container {
-  border: solid 1px white;
-  border-radius: 5px;
-  height: 250px;
-  width: auto;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: solid 2px transparent;
+  border-radius: 5px;
+  transition: 0.5s;
 }
 
 .poster-container:hover {
-  border: solid 1px #00c030;
+  border: solid 2px #00c030;
+  border-radius: 5px;
 }
 
 .poster {
+  border: solid 1px white;
+  border-radius: 5px;
   height: 100%;
   width: auto;
   cursor: pointer;
@@ -25,6 +26,7 @@ HOVERED; THE ISSUE LIES WITHIN THE BORDER SIZE INCREASING */
 
 .poster:hover {
   filter: brightness(0.5);
+  border: solid 1px;
 }
 
 .poster-average {

@@ -7,7 +7,7 @@ const API_IMG = 'https://image.tmdb.org/t/p/w500/'
 const API_URL = process.env.REACT_APP_API_URL
 
 // MAKE THIS LESS CLUNKY BY RE-PULLING DATA FROM TMDB API INSTEAD OF USING STATE!!
-const MovieContainer = ({ title, poster, average, setFilm }) => {
+const MovieContainer = ({ title, poster, average, setFilm, height, width }) => {
   const [hover, setHover] = useState(false);
 
   const handleMouseOver = () => {
@@ -23,9 +23,12 @@ const MovieContainer = ({ title, poster, average, setFilm }) => {
   }
 
   return (
-    <div className='poster-container' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={e => handleClick(e)}>
+    <div className='poster-container' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={e => handleClick(e)} 
+         style={{ height: `${height}px`, width: `${width}px` }}>
       <Link to={`/films/info`} className='poster-container'>
-        <img src={API_IMG + poster} alt='Movie poster' className='poster'/>
+        <img src={API_IMG + poster} alt='Movie poster' className='poster'
+         style={{ height: `${height}px`, width: `${width}px` }}
+        />
       </Link>
       { hover ?
         <div className='poster-average'>Score: {average}</div>

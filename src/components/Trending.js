@@ -32,6 +32,8 @@ const Trending = ({ setFilm }) => {
               poster={movie.poster_path}
               average={movie.vote_average}
               setFilm={setFilm}
+              height='351'
+              width='236'
             /> 
           )}
         </div>

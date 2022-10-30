@@ -84,6 +84,8 @@ const App = ({ film, setFilm }) => {
                   poster={movie.poster_path}
                   average={movie.vote_average}
                   setFilm={setFilm}
+                  height={231}
+                  width={156}
                 />
               )}
           </div>
