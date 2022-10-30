@@ -55,7 +55,7 @@ const App = ({ film, setFilm }) => {
       setPopSix(data.results.slice(0, 6))
     })
   }, []);
-//sample
+
   return (
     <div className='app-container'>
       <Nav setMovies={setMovies} query={query} setQuery={setQuery} />
@@ -77,7 +77,6 @@ const App = ({ film, setFilm }) => {
       <div className='movies-container'>
         <div className="popular-container">
           <div className="popular-title">POPULAR ON LETTERBOXD</div>
-          {/* IDEA: REMOVE WHITE THUMBNAIL BACKGROUND ON HOVER AND REPLACE W/ GREEN */}
           <div className="popular-thumbnails">
             {popSix.map((movie)=>
                 <MovieContainer key={movie.id}
@@ -96,7 +95,6 @@ const App = ({ film, setFilm }) => {
       <div className="features-container">
         <div className="features-title">LETTERBOXD LETS YOU...</div>
         <div className="site-features">
-          {/* ADD HOVER EFFECTS TO THESE + FIX WIDTH ON FULL SCREEN */}
           <div className="feature f1">
             <img src={Eye} alt='Review' className='feature-icon'/>
             <p>Keep track of every film you've ever watched (or just start from the day
@@ -128,15 +126,6 @@ const App = ({ film, setFilm }) => {
         </div>
       </div>
       <div className="ad-space">YOUR AD GOES HERE</div>
-      {/* {movies.map((movie)=>
-        <MovieContainer key={movie.id}
-          title={movie.title}
-          poster={movie.poster_path}
-          average={movie.vote_average}
-          release={movie.release_date}
-          overview={movie.overview}
-        />
-      )} */}
     </div>
   );
 };

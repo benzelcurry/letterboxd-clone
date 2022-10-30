@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from '../images/logo.png';
-import Search from '../images/search.svg';
 import '../stylesheets/Nav.css';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -41,7 +40,7 @@ const Nav = ({ setMovies, query, setQuery }) => {
         <div className='separate'>
           <div className='sign-in nav-icon'>SIGN IN</div>
           <div className="create-account nav-icon">CREATE ACCOUNT</div>
-          <div className="films nav-icon">FILMS</div>
+          <Link to={'/Trending'} className="films nav-icon">FILMS</Link>
           <Link to={'/Lists'} className='lists nav-icon'>LISTS</Link>
           <Link to={'/Members'} className='members-page nav-icon'>MEMBERS</Link>
           <div className="journal nav-icon">JOURNAL</div>
