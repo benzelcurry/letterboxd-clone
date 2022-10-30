@@ -30,7 +30,7 @@ const Trending = ({ setFilm }) => {
               key={movie.id}
               title={movie.title}
               poster={movie.poster_path}
-              average={movie.vote_average}
+              average={movie.vote_average.toFixed(1)}
               setFilm={setFilm}
               height='351'
               width='236'
