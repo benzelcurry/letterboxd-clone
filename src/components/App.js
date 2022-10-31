@@ -53,6 +53,7 @@ const App = ({ film, setFilm }) => {
       setMovies(data.results);
       setBackdrop(data.results[0].backdrop_path)
       setPopSix(data.results.slice(0, 6))
+      console.log(data.results);
     })
   }, []);
 
@@ -80,6 +81,7 @@ const App = ({ film, setFilm }) => {
           <div className="popular-thumbnails">
             {popSix.map((movie)=>
                 <MovieContainer key={movie.id}
+                  filmID={movie.id}
                   title={movie.title}
                   poster={movie.poster_path}
                   average={movie.vote_average}

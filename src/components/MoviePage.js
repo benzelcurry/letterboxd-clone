@@ -12,6 +12,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const MoviePage = ({ film, setFilm }) => {
   const [search, setSearch] = useState(null);
   const [info, setInfo] = useState({
+    title: null,
     overview: null,
     filmID: null,
     backdrop: null,
@@ -20,7 +21,7 @@ const MoviePage = ({ film, setFilm }) => {
     release: null,
     genres: null,
   })
-  const [genres, setGenres] = useState([]);
+
   const [cast, setCast] = useState([]);
   const [writing, setWriting] = useState([]);
   const [production, setProduction] = useState([]);
@@ -47,47 +48,33 @@ const MoviePage = ({ film, setFilm }) => {
   }
 
   // Creates a link that can be used to search for film info based on film name
-  useEffect(() => {
-    const filmArr = film.split(' ');
-    const filmQuery = filmArr.join('-');
+  // useEffect(() => {
+  //   const filmArr = film.split(' ');
+  //   const filmQuery = filmArr.join('-');
 
-    setSearch(API_SEARCH + filmQuery);
-  }, [])
-
-  // Pulls the genre IDs and correlated genres and sets them to a state variable
-  useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US)`)
-    .then((response) => response.json())
-    .then((data) => {
-      setGenres([]);
-      for (let i = 0; i < data.genres.length; i++) {
-        setGenres(current => [...current, data.genres[i]])
-      }
-    })
-  }, [info])
+  //   setSearch(API_SEARCH + filmQuery);
+  // }, [])
 
   // Pulls film info and assigns to a state variable
   useEffect(() => {
-    fetch(search)
+    fetch(`https://api.themoviedb.org/3/movie/${film}?api_key=${API_KEY}&language=en-US)`)
     .then((response) => response.json())
     .then((data) => {
       let genreList = [];
+      console.log(data);
 
-      for (let i = 0; i < data.results[0].genre_ids.length; i++) {
-        for (let j = 0; j < genres.length; j++) {
-          if (data.results[0].genre_ids[i] === genres[j].id) {
-            genreList.push(genres[j].name)
-          }
-        }
+      for (let i = 0; i < data.genres.length; i++) {
+        genreList.push(data.genres[i].name);
       }
 
       setInfo({
-        overview: data.results[0].overview,
-        filmID: data.results[0].id,
-        backdrop: data.results[0].backdrop_path,
-        poster: data.results[0].poster_path,
-        average: data.results[0].vote_average,
-        release: data.results[0].release_date.slice(0, 4),
+        title: data.title,
+        overview: data.overview,
+        filmID: data.id,
+        backdrop: data.backdrop_path,
+        poster: data.poster_path,
+        average: data.vote_average.toFixed(1),
+        release: data.release_date.slice(0, 4),
         genres: genreList
       })
     })
@@ -227,7 +214,7 @@ const MoviePage = ({ film, setFilm }) => {
           <img src={API_IMG + info.poster} alt={`${film} poster`} className='film-poster' />
         </div>
         <div className="film-title-container">
-            <div className='film-title'>{film}</div>
+            <div className='film-title'>{info.title}</div>
             <div className="film-release">{info.release}</div>
             <div className="directed-by">Directed by 
               <div className='director'>{director}</div>

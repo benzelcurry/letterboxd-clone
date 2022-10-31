@@ -28,6 +28,7 @@ const Trending = ({ setFilm }) => {
           {trending.map((movie) =>
             <MovieContainer 
               key={movie.id}
+              filmID={movie.id}
               title={movie.title}
               poster={movie.poster_path}
               average={movie.vote_average.toFixed(1)}
