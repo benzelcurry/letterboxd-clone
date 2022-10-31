@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from '../images/logo.png';
+import SignIn from './SignIn';
 import '../stylesheets/Nav.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const API_SEARCH = process.env.REACT_APP_API_SEARCH
@@ -31,23 +32,33 @@ const Nav = ({ setMovies, query, setQuery }) => {
   //   setQuery(e.target.value);
   // }
 
+  const [signIn, setSignIn] = useState(true);
+
+  const handleClick = () => {
+    setSignIn(true);
+  }
+
   return (
     <div className='nav-container'>
       <div className="nav-container2">
         <Link to={'/'}>
           <img src={Logo} alt='Letterboxd logo' className='logo' />
         </Link>
-        <div className='separate'>
-          <div className='sign-in nav-icon'>SIGN IN</div>
-          <div className="create-account nav-icon">CREATE ACCOUNT</div>
-          <Link to={'/Trending'} className="films nav-icon">TRENDING</Link>
-          <Link to={'/Lists'} className='lists nav-icon'>LISTS</Link>
-          <Link to={'/Members'} className='members-page nav-icon'>MEMBERS</Link>
-          <form>
-            <i className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} /></i>
-            <input type='text' className='search'></input>
-          </form>
-        </div>
+        { signIn ?
+          <SignIn setSignIn={setSignIn} />
+          : 
+          <div className='separate'>
+            <div className='sign-in nav-icon' onClick={handleClick}>SIGN IN</div>
+            <div className="create-account nav-icon">CREATE ACCOUNT</div>
+            <Link to={'/Trending'} className="films nav-icon">TRENDING</Link>
+            <Link to={'/Lists'} className='lists nav-icon'>LISTS</Link>
+            <Link to={'/Members'} className='members-page nav-icon'>MEMBERS</Link>
+            <form>
+              <i className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} /></i>
+              <input type='text' className='search'></input>
+            </form>
+          </div>
+        }
       </div>
     </div>
   );
