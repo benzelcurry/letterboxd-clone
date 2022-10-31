@@ -1,7 +1,91 @@
 .sign-in-container {
   display: flex;
-  width: 571px;
-  height: 73px;
-  background-color: #fff;
+  align-items: center;
+  gap: 20px;
+  width: 570px;
+  height: 50px;
+  padding: 15px;
+  background-color: #14181c;
   border-radius: 5px;
+}
+
+.close {
+  font-size: 30px;
+  color: #2c3440;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #c9cfda;
+}
+
+.sign-in-form {
+  display: flex;
+  gap: 10px;
+}
+
+.sign-in-info {
+  display: flex;
+  flex-direction: column;
+}
+
+#username, #password {
+  height: 18px;
+  width: 136px;
+  padding: 5px 7px;
+  border-radius: 5px;
+  background-color: #2c3440;
+}
+
+#username:focus,
+#password:focus {
+  background-color: #fff;
+}
+
+.sign-in-info > label {
+  margin-bottom: 5px;
+  color: #495568;
+}
+
+.sign-in-info > input {
+  outline: none;
+}
+
+.sign-in-remember {
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+#remember {
+  accent-color: #00b020;
+}
+
+label.remember {
+  justify-self: start;
+  align-self: center;
+  color: #495568;
+  border-bottom: dotted 1px grey;
+}
+
+button.sign-in {
+  align-self: center;
+  margin-top: 20px;
+  background-color: #00b020;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  height: 28px;
+  width: 82px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+button.sign-in:hover {
+  filter: brightness(0.9);
+}
+
+button.sign-in:active {
+  filter: brightness(0.8);
 }
