@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
 
 import Logo from '../images/logo.png';
 import SignIn from './SignIn';
@@ -32,7 +33,18 @@ const Nav = ({ setMovies, query, setQuery }) => {
   //   setQuery(e.target.value);
   // }
 
-  const [signIn, setSignIn] = useState(true);
+  const [signIn, setSignIn] = useState(false);
+  const {user, logOut} = UserAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await logOut()
+    } catch (error) {
+      console.log(error);
+    }
+
+    setSignIn(false);
+  }
 
   const handleClick = () => {
     setSignIn(true);
@@ -44,11 +56,13 @@ const Nav = ({ setMovies, query, setQuery }) => {
         <Link to={'/'}>
           <img src={Logo} alt='Letterboxd logo' className='logo' />
         </Link>
-        { signIn ?
+        { !user?.displayName && signIn ?
           <SignIn setSignIn={setSignIn} />
           : 
           <div className='separate'>
-            <div className='sign-in nav-icon' onClick={handleClick}>SIGN IN</div>
+            { user?.displayName ? <button onClick={handleSignOut}>Logout</button> : 
+              <div className='sign-in nav-icon' onClick={handleClick}>SIGN IN</div>
+            }
             <div className="create-account nav-icon">CREATE ACCOUNT</div>
             <Link to={'/Trending'} className="films nav-icon">TRENDING</Link>
             <Link to={'/Lists'} className='lists nav-icon'>LISTS</Link>

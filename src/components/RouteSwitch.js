@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { AuthContextProvider } from '../context/AuthContext';
 
 import App from './App';
 import Lists from './Lists';
@@ -11,15 +12,17 @@ const RouteSwitch = () => {
   const [film, setFilm] = useState(null);
 
   return (
-    <HashRouter>
-      <Routes>
-        <Route path='/' element={<App film={film} setFilm={setFilm} />} />
-        <Route path='/lists' element={<Lists />} />
-        <Route path='/members' element={<Members />} />
-        <Route path='/films/:movieName' element={<MoviePage film={film} setFilm={setFilm} />} />
-        <Route path='/trending' element={<Trending setFilm={setFilm}/>} />
-      </Routes>
-    </HashRouter>
+    <AuthContextProvider>
+      <HashRouter>
+        <Routes>
+          <Route path='/' element={<App film={film} setFilm={setFilm} />} />
+          <Route path='/lists' element={<Lists />} />
+          <Route path='/members' element={<Members />} />
+          <Route path='/films/:movieName' element={<MoviePage film={film} setFilm={setFilm} />} />
+          <Route path='/trending' element={<Trending setFilm={setFilm}/>} />
+        </Routes>
+      </HashRouter>
+    </AuthContextProvider>
   );
 };
 
