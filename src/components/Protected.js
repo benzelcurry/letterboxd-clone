@@ -6,13 +6,9 @@ const Protected = ({ children }) => {
   const { user } = UserAuth();
   if (!user) {
     return <Navigate to='/' />;
-
-    return children;
   }
 
-  return (
-    <div>Protected</div>
-  );
+  return children;
 };
 
 export default Protected;

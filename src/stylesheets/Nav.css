@@ -47,6 +47,25 @@
   gap: 20px;
 }
 
+.account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic {
+  border: solid 1px white;
+  border-radius: 50%;
+  height: 30px;
+}
+
+.profile-name {
+  white-space: nowrap;
+  font-size: 13px;
+  color: #c9d6e4;
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
   color: white;

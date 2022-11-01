@@ -60,7 +60,12 @@ const Nav = ({ setMovies, query, setQuery }) => {
           <SignIn setSignIn={setSignIn} />
           : 
           <div className='separate'>
-            { user?.displayName ? <Link to={'/Account'}>Account</Link> : null }
+            { user?.displayName ? 
+              <Link to={'/Account'} className='account'>
+                <img src={user.photoURL} alt='Profile picture' className='profile-pic' />
+                <div className='profile-name'>{user.displayName.toUpperCase()}</div>
+              </Link> 
+              : null }
             { user?.displayName ? <button onClick={handleSignOut}>Logout</button> : 
               <div className='sign-in nav-icon' onClick={handleClick}>SIGN IN</div>
             }
