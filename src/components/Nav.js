@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 
 import Logo from '../images/logo.png';
+import Dropdown from './Dropdown';
 import SignIn from './SignIn';
 import '../stylesheets/Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -34,6 +35,7 @@ const Nav = ({ setMovies, query, setQuery }) => {
   // }
 
   const [signIn, setSignIn] = useState(false);
+  const [hover, setHover] = useState(false);
   const {user, logOut} = UserAuth();
 
   const handleSignOut = async () => {
@@ -50,6 +52,14 @@ const Nav = ({ setMovies, query, setQuery }) => {
     setSignIn(true);
   }
 
+  const hoverUser = () => {
+    setHover(true);
+  }
+
+  const exitUser = () => {
+    setHover(false);
+  }
+
   return (
     <div className='nav-container'>
       <div className="nav-container2">
@@ -61,10 +71,16 @@ const Nav = ({ setMovies, query, setQuery }) => {
           : 
           <div className='separate'>
             { user?.displayName ? 
-              <Link to={'/Account'} className='account'>
-                <img src={user.photoURL} alt='Profile picture' className='profile-pic' />
-                <div className='profile-name'>{user.displayName.toUpperCase()}</div>
-              </Link> 
+              <div className="account-nav" onMouseLeave={exitUser}>
+                <Link to={'/Account'} className='account' onMouseEnter={hoverUser}>
+                  <img src={user.photoURL} alt='Profile picture' className='profile-pic' />
+                  <div className='profile-name'>{user.displayName.toUpperCase()}</div>
+                </Link>
+                { hover ? 
+                  <Dropdown onMouseEnter={hoverUser} handleSignOut={handleSignOut} />
+                  : null
+                }
+              </div>
               : null }
             { user?.displayName ? <button onClick={handleSignOut}>Logout</button> : 
               <div className='sign-in nav-icon' onClick={handleClick}>SIGN IN</div>
