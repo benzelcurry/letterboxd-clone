@@ -7,6 +7,7 @@ import Lists from './Lists';
 import Members from './Members';
 import MoviePage from './MoviePage';
 import Trending from './Trending';
+import Account from './Account';
 
 const RouteSwitch = () => {
   const [film, setFilm] = useState(null);
@@ -20,6 +21,7 @@ const RouteSwitch = () => {
           <Route path='/members' element={<Members />} />
           <Route path='/films/:movieName' element={<MoviePage film={film} setFilm={setFilm} />} />
           <Route path='/trending' element={<Trending setFilm={setFilm}/>} />
+          <Route path='/account' element={<Account />} />
         </Routes>
       </HashRouter>
     </AuthContextProvider>
