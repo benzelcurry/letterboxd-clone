@@ -69,6 +69,9 @@
   font-size: 13px;
   color: #c9d6e4;
   font-weight: bold;
+  max-width: 12ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 a {

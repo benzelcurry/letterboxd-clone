@@ -35,7 +35,7 @@ const Nav = ({ setMovies, query, setQuery }) => {
   // }
 
   const [signIn, setSignIn] = useState(false);
-  const [hover, setHover] = useState(true);
+  const [hover, setHover] = useState(false);
   const {user, logOut} = UserAuth();
 
   const handleSignOut = async () => {
@@ -74,7 +74,9 @@ const Nav = ({ setMovies, query, setQuery }) => {
               <div className="account-nav" onMouseLeave={exitUser}>
                 <Link to={'/Account'} className='account' onMouseEnter={hoverUser}>
                   <img src={user.photoURL} alt='Profile picture' className='profile-pic' />
-                  <div className='profile-name'>{user.displayName.toUpperCase()}</div>
+                  <div className='profile-name'>
+                    {user.displayName.toUpperCase()}
+                  </div>
                 </Link>
               </div>
               : null }
@@ -82,7 +84,9 @@ const Nav = ({ setMovies, query, setQuery }) => {
               <div className="account-nav" onMouseLeave={exitUser} style={{ backgroundColor: '#8899aa' }}>
                 <Link to={'/Account'} className='account' onMouseEnter={hoverUser}>
                   <img src={user.photoURL} alt='Profile picture' className='profile-pic' />
-                  <div className='profile-name' style={{ color: '#fff' }}>{user.displayName.toUpperCase()}</div>
+                  <div className='profile-name' style={{ color: '#fff' }}>
+                    {user.displayName.toUpperCase()}
+                  </div>
                 </Link>
                 { hover ? 
                   <Dropdown onMouseEnter={hoverUser} handleSignOut={handleSignOut} />
