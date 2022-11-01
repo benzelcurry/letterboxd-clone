@@ -4,7 +4,7 @@ import { UserAuth } from '../context/AuthContext';
 
 import '../stylesheets/SignIn.css';
 
-const SignIn = ({ setSignIn }) => {
+const SignIn = ({ setSignIn, setHover }) => {
   const { googleSignIn, user } = UserAuth();
 
   const handleClick = () => {
@@ -21,6 +21,8 @@ const SignIn = ({ setSignIn }) => {
     } catch (error) {
       console.log(error);
     }
+
+    setHover(false);
   }
 
   return (

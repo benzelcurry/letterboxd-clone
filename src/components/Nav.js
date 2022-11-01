@@ -35,7 +35,7 @@ const Nav = ({ setMovies, query, setQuery }) => {
   // }
 
   const [signIn, setSignIn] = useState(false);
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState(true);
   const {user, logOut} = UserAuth();
 
   const handleSignOut = async () => {
@@ -67,25 +67,34 @@ const Nav = ({ setMovies, query, setQuery }) => {
           <img src={Logo} alt='Letterboxd logo' className='logo' />
         </Link>
         { !user?.displayName && signIn ?
-          <SignIn setSignIn={setSignIn} />
+          <SignIn setSignIn={setSignIn} setHover={setHover} />
           : 
           <div className='separate'>
-            { user?.displayName ? 
+            { user?.displayName && !hover ? 
               <div className="account-nav" onMouseLeave={exitUser}>
                 <Link to={'/Account'} className='account' onMouseEnter={hoverUser}>
                   <img src={user.photoURL} alt='Profile picture' className='profile-pic' />
                   <div className='profile-name'>{user.displayName.toUpperCase()}</div>
                 </Link>
+              </div>
+              : null }
+            { user?.displayName && hover ? 
+              <div className="account-nav" onMouseLeave={exitUser} style={{ backgroundColor: '#8899aa' }}>
+                <Link to={'/Account'} className='account' onMouseEnter={hoverUser}>
+                  <img src={user.photoURL} alt='Profile picture' className='profile-pic' />
+                  <div className='profile-name' style={{ color: '#fff' }}>{user.displayName.toUpperCase()}</div>
+                </Link>
                 { hover ? 
                   <Dropdown onMouseEnter={hoverUser} handleSignOut={handleSignOut} />
                   : null
                 }
-              </div>
-              : null }
-            { user?.displayName ? <button onClick={handleSignOut}>Logout</button> : 
-              <div className='sign-in nav-icon' onClick={handleClick}>SIGN IN</div>
+              </div> 
+              : null 
             }
-            <div className="create-account nav-icon">CREATE ACCOUNT</div>
+            { !user?.displayName ? <div className='sign-in nav-icon' onClick={handleClick}>SIGN IN</div>
+             : null
+            }
+            {/* <div className="create-account nav-icon">CREATE ACCOUNT</div> */}
             <Link to={'/Trending'} className="films nav-icon">TRENDING</Link>
             <Link to={'/Lists'} className='lists nav-icon'>LISTS</Link>
             <Link to={'/Members'} className='members-page nav-icon'>MEMBERS</Link>
