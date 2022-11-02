@@ -23,10 +23,9 @@ const API_IMG = 'https://image.tmdb.org/t/p/original/'
 
 // REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
 // CURRENT PRIORITY: DYNAMICALLY CREATE PAGES WITH REACT-ROUTER THEN IMPLEMENT SEARCH FEATURE
-const App = ({ film, setFilm }) => {
+const App = ({ query, setQuery, setFilm, searchQuery, setSearchQuery }) => {
   const [movies, setMovies] = useState([])
   const [backdrop, setBackdrop] = useState('')
-  const [query, setQuery] = useState('')
   const [popSix, setPopSix] = useState([])
   
   useEffect(() => {
@@ -42,7 +41,7 @@ const App = ({ film, setFilm }) => {
 
   return (
     <div className='app-container'>
-      <Nav setMovies={setMovies} query={query} setQuery={setQuery} />
+      <Nav setMovies={setMovies} query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="home-container">
         <div className="backdrop-container">
           <img src={API_IMG + backdrop} alt='Movie backdrop' className='backdrop'/>

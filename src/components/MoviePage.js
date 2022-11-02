@@ -9,7 +9,7 @@ const API_IMG = 'https://image.tmdb.org/t/p/original/';
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 // GET CAST INFO TO DISPLAY ON PAGE
-const MoviePage = ({ film, setFilm }) => {
+const MoviePage = ({ film, setFilm, query, setQuery, searchQuery, setSearchQuery }) => {
   const [search, setSearch] = useState(null);
   const [info, setInfo] = useState({
     title: null,
@@ -207,7 +207,7 @@ const MoviePage = ({ film, setFilm }) => {
 
   return (
     <div className='info-container'>
-      <Nav />
+      <Nav query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <img src={API_IMG + info.backdrop} alt={`${film} backdrop`} className='film-backdrop' />
       <div className="details-container">
         <div className="details-left">

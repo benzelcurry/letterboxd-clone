@@ -6,7 +6,7 @@ import MovieContainer from './MovieContainer';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const Trending = ({ setFilm }) => {
+const Trending = ({ setFilm, query, setQuery, searchQuery, setSearchQuery }) => {
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Trending = ({ setFilm }) => {
 
   return (
     <div className="trending-container">
-      <Nav />
+      <Nav query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="weekly-trending">
         <div className="weekly-title">TRENDING FILMS THIS WEEK</div>
         <div className="trending-movies">

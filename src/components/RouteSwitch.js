@@ -13,18 +13,20 @@ import Search from './Search';
 
 const RouteSwitch = () => {
   const [film, setFilm] = useState(null);
+  const [query, setQuery] = useState(null);
+  const [searchQuery, setSearchQuery] = useState(null);
 
   return (
     <AuthContextProvider>
       <HashRouter>
         <Routes>
-          <Route path='/' element={<App film={film} setFilm={setFilm} />} />
-          <Route path='/lists' element={<Lists />} />
-          <Route path='/members' element={<Members />} />
-          <Route path='/films/:movieName' element={<MoviePage film={film} setFilm={setFilm} />} />
-          <Route path='/trending' element={<Trending setFilm={setFilm}/>} />
-          <Route path='/account' element={<Protected><Account /></Protected>} />
-          <Route path='/search' element={<Search />} />
+          <Route path='/' element={<App film={film} setFilm={setFilm} query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
+          <Route path='/lists' element={<Lists query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
+          <Route path='/members' element={<Members query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
+          <Route path='/films/:movieName' element={<MoviePage film={film} setFilm={setFilm} query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
+          <Route path='/trending' element={<Trending setFilm={setFilm} query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
+          <Route path='/account' element={<Protected><Account query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} /></Protected>} />
+          <Route path='/search' element={<Search query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
         </Routes>
       </HashRouter>
     </AuthContextProvider>

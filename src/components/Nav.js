@@ -13,7 +13,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 const API_SEARCH = process.env.REACT_APP_API_SEARCH
 
 // MAKE IT SO TITLES HIGHLIGHT IN WHITE USING STATE WHEN ON THEIR PAGES
-const Nav = ({ setMovies, query, setQuery }) => {
+const Nav = ({ setQuery, searchQuery, setSearchQuery }) => {
   // !!! POTENTIAL LOGIC FOR SEARCH FUNCTION BELOW !!!
   // const searchMovies = async(e) => {
   //   e.preventDefault();
@@ -53,8 +53,13 @@ const Nav = ({ setMovies, query, setQuery }) => {
 
   // Send the search query through this function perhaps?
   const handleSearch = () => {
-    console.log('here')
-    navigate('/search')
+      setQuery(searchQuery)
+      navigate('/search')
+  }
+
+  const handleQuery = (e) => {
+    console.log('here');
+    setSearchQuery(e.target.value);
   }
 
   const handleClick = () => {
@@ -113,7 +118,7 @@ const Nav = ({ setMovies, query, setQuery }) => {
             <Link to={'/Members'} className='members-page nav-icon'>MEMBERS</Link>
             <form onSubmit={handleSearch}>
               <i className='search-icon' onClick={handleSearch}><FontAwesomeIcon icon={faMagnifyingGlass} /></i>
-              <input type='text' className='search'></input>
+              <input type='text' className='search' onChange={e => handleQuery(e)}></input>
             </form>
           </div>
         }

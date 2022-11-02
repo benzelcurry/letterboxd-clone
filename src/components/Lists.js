@@ -13,10 +13,10 @@ import Avatar3 from '../images/list-avatars/avatar3.svg';
 import Heart from '../images/heart.svg';
 import Comment from '../images/comment.svg';
 
-const Lists = () => {
+const Lists = ({ query, setQuery, searchQuery, setSearchQuery }) => {
   return (
     <div className='lists-container'>
-      <Nav />
+      <Nav query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="lists-header">
         Collect, curate, and share. Lists are the perfect way to group films.
         <div className="lists-start">Start your own list</div>
