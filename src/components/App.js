@@ -68,8 +68,9 @@ const App = ({ query, setQuery, setFilm, searchQuery, setSearchQuery }) => {
                   poster={movie.poster_path}
                   average={movie.vote_average}
                   setFilm={setFilm}
-                  height={231}
-                  width={156}
+                  height='231'
+                  width='156'
+                  fontsize='1.3rem'
                 />
               )}
           </div>

@@ -39,8 +39,14 @@ const Search = ({ setFilm, query, setQuery, searchQuery, setSearchQuery }) => {
               setFilm={setFilm}
               height='111'
               width='76'
+              fontsize='14px'
             />
-            <div className="results-title">{movie.title}</div>
+            <div className="results-right">
+              <div className="results-title">{movie.title}
+                <div className="results-release">{movie.release_date.slice(0, 4)}</div>
+              </div>
+              <div className="results-overview">{movie.overview}</div>
+            </div>
           </div>
         )}
       </div>

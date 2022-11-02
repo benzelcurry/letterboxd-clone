@@ -35,6 +35,7 @@ const Trending = ({ setFilm, query, setQuery, searchQuery, setSearchQuery }) => 
               setFilm={setFilm}
               height='351'
               width='236'
+              fontsize='1.3rem'
             /> 
           )}
         </div>

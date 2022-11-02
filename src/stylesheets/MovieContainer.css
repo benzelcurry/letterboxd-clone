@@ -32,7 +32,7 @@ HOVERED; THE ISSUE LIES WITHIN THE BORDER SIZE INCREASING */
 .poster-average {
   display: flex;
   position: absolute;
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
   color: white;
   z-index: 12;
 }
