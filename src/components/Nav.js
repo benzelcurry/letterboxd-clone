@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 
 import Logo from '../images/logo.png';
@@ -46,6 +47,14 @@ const Nav = ({ setMovies, query, setQuery }) => {
     }
 
     setSignIn(false);
+  }
+
+  const navigate = useNavigate();
+
+  // Send the search query through this function perhaps?
+  const handleSearch = () => {
+    console.log('here')
+    navigate('/search')
   }
 
   const handleClick = () => {
@@ -102,8 +111,8 @@ const Nav = ({ setMovies, query, setQuery }) => {
             <Link to={'/Trending'} className="films nav-icon">TRENDING</Link>
             <Link to={'/Lists'} className='lists nav-icon'>LISTS</Link>
             <Link to={'/Members'} className='members-page nav-icon'>MEMBERS</Link>
-            <form>
-              <i className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} /></i>
+            <form onSubmit={handleSearch}>
+              <i className='search-icon' onClick={handleSearch}><FontAwesomeIcon icon={faMagnifyingGlass} /></i>
               <input type='text' className='search'></input>
             </form>
           </div>
