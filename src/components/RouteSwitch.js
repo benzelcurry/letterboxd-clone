@@ -16,6 +16,7 @@ const RouteSwitch = () => {
   const [query, setQuery] = useState(null);
   const [searchQuery, setSearchQuery] = useState(null);
 
+  // NOTE: Could make this look way cleaner by putting these methods into a single object
   return (
     <AuthContextProvider>
       <HashRouter>
@@ -26,7 +27,7 @@ const RouteSwitch = () => {
           <Route path='/films/:movieName' element={<MoviePage film={film} setFilm={setFilm} query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
           <Route path='/trending' element={<Trending setFilm={setFilm} query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
           <Route path='/account' element={<Protected><Account query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} /></Protected>} />
-          <Route path='/search' element={<Search query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
+          <Route path='/search' element={<Search setFilm={setFilm} query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
         </Routes>
       </HashRouter>
     </AuthContextProvider>

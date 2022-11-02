@@ -53,7 +53,7 @@ const Nav = ({ setQuery, searchQuery, setSearchQuery }) => {
 
   // Send the search query through this function perhaps?
   const handleSearch = () => {
-      setQuery(searchQuery)
+      setQuery(searchQuery.split(' ').join('-'))
       navigate('/search')
   }
 
