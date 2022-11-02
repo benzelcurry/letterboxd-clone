@@ -1,3 +1,8 @@
+@font-face {
+  font-family: tiempos;
+  src: url('../fonts/test-tiempos-headline-bold.woff2');
+}
+
 .search-page {
   display: flex;
   flex-direction: column;
@@ -5,4 +10,25 @@
   align-items: center;
   color: white;
   margin-top: 80px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.results-container {
+  display: grid;
+  grid-template-columns: 100px auto;
+  border-bottom: solid 1px grey;
+  padding-bottom: 30px;
+  width: 670px;
+}
+
+.results-title {
+  font-family: tiempos;
+  font-size: 22px;
+  display: flex;
+  justify-content: start;
 }

@@ -9,20 +9,6 @@ const Search = ({ setFilm, query, setQuery, searchQuery, setSearchQuery }) => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const [results, setResults] = useState([]);
 
-  // {trending.map((movie) =>
-  //   <MovieContainer 
-  //     key={movie.id}
-  //     filmID={movie.id}
-  //     title={movie.title}
-  //     poster={movie.poster_path}
-  //     average={movie.vote_average.toFixed(1)}
-  //     setFilm={setFilm}
-  //     height='351'
-  //     width='236'
-  //   /> 
-  // )}
-
-  // will need to join queries by spaces and then separate with hyphens
   useEffect(() => {
     fetch(API_SEARCH + query)
     .then((response) => response.json())
@@ -42,19 +28,22 @@ const Search = ({ setFilm, query, setQuery, searchQuery, setSearchQuery }) => {
   return (
     <div className="search-page">
       <Nav query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      Your search query is: {query}
-      {results.map((movie) => 
-        <MovieContainer 
-          key={movie.id}
-          filmID={movie.id}
-          title={movie.title}
-          poster={movie.poster_path}
-          average={movie.vote_average}
-          setFilm={setFilm}
-          height='351'
-          width='236'
-        />
-      )}
+      <div className='results'>
+        {results.map((movie) => 
+          <div className='results-container' key={movie.id}>
+            <MovieContainer 
+              filmID={movie.id}
+              title={movie.title}
+              poster={movie.poster_path}
+              average={movie.vote_average}
+              setFilm={setFilm}
+              height='111'
+              width='76'
+            />
+            <div className="results-title">{movie.title}</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
