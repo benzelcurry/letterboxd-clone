@@ -209,7 +209,11 @@ const MoviePage = ({ film, setFilm, query, setQuery, searchQuery, setSearchQuery
   return (
     <div className='info-container'>
       <Nav query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <img src={API_IMG + info.backdrop} alt={`${film} backdrop`} className='film-backdrop' />
+      {/* <img src={API_IMG + info.backdrop} alt={`${film} backdrop`} className='film-backdrop' /> */}
+      <div className='film-backdrop2'
+        style={{ backgroundImage: `url(${API_IMG + info.backdrop})` }}>
+
+      </div>
       <div className="details-container">
         <div className="details-left">
           <img src={API_IMG + info.poster} alt={`${film} poster`} className='film-poster' />
