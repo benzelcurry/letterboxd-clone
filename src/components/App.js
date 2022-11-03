@@ -1,7 +1,4 @@
-// TO-DO LIST:
-// 1. ADD SEARCH FEATURE
-// 2. IMPLEMENT DYNAMIC ROUTING
-// 3. IMPLEMENT ADDITIONAL FEATURES AS NEEDED TO REPLICATE LETTERBOXD UI
+// Home page for website
 
 import React, { useState, useEffect } from 'react';
 
@@ -22,7 +19,6 @@ const API_KEY = process.env.REACT_APP_API_KEY
 const API_IMG = 'https://image.tmdb.org/t/p/original/'
 
 // REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
-// CURRENT PRIORITY: DYNAMICALLY CREATE PAGES WITH REACT-ROUTER THEN IMPLEMENT SEARCH FEATURE
 const App = ({ query, setQuery, setFilm, searchQuery, setSearchQuery }) => {
   const [movies, setMovies] = useState([])
   const [backdrop, setBackdrop] = useState('')

@@ -1,3 +1,5 @@
+// Displays search results when users enter a query through the navbar's search field
+
 import React, { useState, useEffect } from 'react';
 
 import Nav from './Nav';

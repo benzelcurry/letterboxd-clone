@@ -1,3 +1,5 @@
+// Displays dynamic movie pages with movie info (title, poster, release date, overview, cast, etc.)
+
 import React, { useState, useEffect } from 'react';
 
 import Nav from './Nav';

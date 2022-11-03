@@ -1,3 +1,5 @@
+// Navbar component
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -14,27 +16,6 @@ const API_SEARCH = process.env.REACT_APP_API_SEARCH
 
 // MAKE IT SO TITLES HIGHLIGHT IN WHITE USING STATE WHEN ON THEIR PAGES
 const Nav = ({ setQuery, searchQuery, setSearchQuery }) => {
-  // !!! POTENTIAL LOGIC FOR SEARCH FUNCTION BELOW !!!
-  // const searchMovies = async(e) => {
-  //   e.preventDefault();
-  //   console.log('Searching');
-    
-  //   try {
-  //     const url = API_SEARCH + '=' + query
-  //     const response = await fetch(url);
-  //     const data = await response.json();
-  //     console.log(data);
-  //     setMovies(data.results);
-  //   }
-  //   catch(e) {
-  //     console.log(e);
-  //   }
-  // }
-
-  // const changeHandler = (e) => {
-  //   setQuery(e.target.value);
-  // }
-
   const [signIn, setSignIn] = useState(false);
   const [hover, setHover] = useState(false);
   const {user, logOut} = UserAuth();
@@ -51,7 +32,6 @@ const Nav = ({ setQuery, searchQuery, setSearchQuery }) => {
 
   const navigate = useNavigate();
 
-  // Send the search query through this function perhaps?
   const handleSearch = () => {
       setQuery(searchQuery.split(' ').join('-'))
       navigate('/search')

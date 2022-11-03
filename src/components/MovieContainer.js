@@ -1,3 +1,5 @@
+// Creates clickable movie thumbnails that show poster, score, & redirect to dynamically created movie page
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +8,6 @@ import '../stylesheets/MovieContainer.css';
 const API_IMG = 'https://image.tmdb.org/t/p/w500/'
 const API_URL = process.env.REACT_APP_API_URL
 
-// MAKE THIS LESS CLUNKY BY RE-PULLING DATA FROM TMDB API INSTEAD OF USING STATE!!
 const MovieContainer = ({ filmID, title, poster, average, setFilm, height, width, fontsize }) => {
   const [hover, setHover] = useState(false);
 

@@ -1,3 +1,5 @@
+// Simple account page that shows user info
+
 import React from 'react';
 import { UserAuth } from '../context/AuthContext';
 

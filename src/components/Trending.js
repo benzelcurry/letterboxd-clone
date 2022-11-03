@@ -1,3 +1,5 @@
+// Displays currently trending movies
+
 import React, { useState, useEffect } from 'react';
 
 import '../stylesheets/Trending.css';

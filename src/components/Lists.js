@@ -1,3 +1,5 @@
+// Displays mock lists of films created by "users"
+
 import React from 'react';
 
 import Nav from './Nav';

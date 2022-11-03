@@ -1,3 +1,5 @@
+// Dropdown that prompts the user to sign in using Google
+
 import React from 'react';
 import { GoogleButton } from 'react-google-button';
 import { UserAuth } from '../context/AuthContext';

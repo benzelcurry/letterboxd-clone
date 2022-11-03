@@ -1,3 +1,5 @@
+// Displays members of the website (uses dummy info to protect info of anyone who signs in w/ Google to test website)
+
 import React from 'react';
 
 import Nav from './Nav';

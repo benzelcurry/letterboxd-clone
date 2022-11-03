@@ -1,3 +1,5 @@
+// Redirects to homepage if user tries accessing account page without being logged in
+
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
