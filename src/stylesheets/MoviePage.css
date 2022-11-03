@@ -12,12 +12,6 @@
 }
 
 .film-backdrop {
-  max-width: 80%;
-  max-height: 500px;
-  height: auto;
-}
-
-.film-backdrop2 {
   padding-top: 80px;
   margin-top: 40px;
   max-height: 500px;

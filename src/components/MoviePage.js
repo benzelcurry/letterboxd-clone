@@ -48,14 +48,6 @@ const MoviePage = ({ film, setFilm, query, setQuery, searchQuery, setSearchQuery
     setShown(e.target.id);
   }
 
-  // Creates a link that can be used to search for film info based on film name
-  // useEffect(() => {
-  //   const filmArr = film.split(' ');
-  //   const filmQuery = filmArr.join('-');
-
-  //   setSearch(API_SEARCH + filmQuery);
-  // }, [])
-
   // Pulls film info and assigns to a state variable
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${film}?api_key=${API_KEY}&language=en-US)`)
@@ -209,8 +201,7 @@ const MoviePage = ({ film, setFilm, query, setQuery, searchQuery, setSearchQuery
   return (
     <div className='info-container'>
       <Nav query={query} setQuery={setQuery} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      {/* <img src={API_IMG + info.backdrop} alt={`${film} backdrop`} className='film-backdrop' /> */}
-      <div className='film-backdrop2'
+      <div className='film-backdrop'
         style={{ backgroundImage: `url(${API_IMG + info.backdrop})` }}>
 
       </div>
