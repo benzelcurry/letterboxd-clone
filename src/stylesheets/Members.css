@@ -1,0 +1,64 @@
+.members-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 0px 40px 0px 40px;
+  margin-top: 80px;
+}
+
+.members-header {
+  padding: 40px;
+  font-size: 2rem;
+  color: #abc;
+}
+
+.popular-members {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  padding: 0px 40px 0px 40px;
+  gap: 30px;
+  width: 100%;
+  color: #abc;
+}
+
+.pop-mem {
+  width: 155px;
+}
+
+.pop-mems-title {
+  padding-bottom: 5px;
+  border-bottom: solid 1px #abc;
+  width: 100%;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.pop-avatar {
+  height: 150px;
+  border: solid 2px white;
+  border-radius: 50%;
+  background-color: green;
+}
+
+#two {
+  background-color: maroon;
+}
+
+#three {
+  background-color: navy;
+}
+
+.pop-mem-name {
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pop-films {
+  display: flex;
+  font-size: 13px;
+  gap: 10px;
+}
