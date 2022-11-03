@@ -1,8 +1,52 @@
 .account-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: white;
-  margin-top: 80px;
+  margin: 120px 20% 0px 20%;
+  gap: 40px;
+}
+
+.account-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.account-pic {
+  border: solid 2px white;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.account-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.account-logout {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00C030;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.account-logout:hover {
+  filter: brightness(0.9);
+}
+
+.account-logout:active {
+  filter: brightness(0.8);
+}
+
+.account-info {
+  padding-top: 20px;
+}
+
+.account-welcome {
+  font-size: 1.3rem;
 }
