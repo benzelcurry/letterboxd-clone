@@ -18,7 +18,12 @@ const API_URL = process.env.REACT_APP_API_URL
 const API_KEY = process.env.REACT_APP_API_KEY
 const API_IMG = 'https://image.tmdb.org/t/p/original/'
 
-// REMEMBER TO SOURCE THAT TMDB WAS USED FOR API
+// IDEAS FOR FUTURE IMPLEMENTATION:
+// * Allow users to actually log and rate movies, saving info to their profile
+//    - Only reason this wasn't implemented is because this project mainly served
+//    - to show front end development knowledge and would rather wait to learn
+//    - more about NodeJS than implementing this feature with the current BaaS
+//    - technologies (Firebase) being used
 const App = ({ query, setQuery, setFilm, searchQuery, setSearchQuery }) => {
   const [movies, setMovies] = useState([])
   const [backdrop, setBackdrop] = useState('')
