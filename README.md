@@ -1,6 +1,7 @@
-Letterboxd clone for The Odin Project's capstone project for the JavaScript course. Movie database API provided by The Movie Database (TMDB; themoviedb.org).
+# Letterboxd clone 
+Capstone project for The Odin Project's front end JavaScript course. Movie database API provided by The Movie Database (TMDB; themoviedb.org).
 
-Features:
+## Features:
 * Google authentication
 * Search for movies by title
 * Shows six current most-popular movies on home page
@@ -13,7 +14,7 @@ Features:
   - Cast & crew info
   - Other misc. info (average score, runtime, production studios, etc.)
 
-Technologies:
+## Technologies:
 * React
 * react-router-dom
 * Firebase hosting
