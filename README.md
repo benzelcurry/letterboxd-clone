@@ -1,4 +1,5 @@
 # Letterboxd clone 
+Link to app: https://letterboxd-clone-odin.web.app/
 Capstone project for The Odin Project's front end JavaScript course. Movie database API provided by The Movie Database (TMDB; themoviedb.org).
 
 ## Features:
